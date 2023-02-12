@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">pdv</string>
+    <string name="app_name">POS Client Service</string>
     <string name="hello_world">Hello world!</string>
 
 </resources>
