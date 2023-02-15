@@ -4,6 +4,7 @@ import android.widget.*;
 import java.util.*;
 import lucas.client.service.*;
 import android.view.*;
+import android.widget.Gallery.*;
 
 public class gridAd extends ArrayAdapter<String>
 {
@@ -24,9 +25,21 @@ public class gridAd extends ArrayAdapter<String>
 		View r = li.inflate(R.layout.adapter_main, parent, false);
 		TextView tv = r.findViewById(R.id.tv);
 		ImageView im = r.findViewById(R.id.im);
-		
+		if(lt.get(position).startsWith("C")){
+			im.setImageResource(R.drawable.client);
+		}
 		if(lt.get(position).startsWith("A")){
 			im.setImageResource(R.drawable.aces);
+		}
+		if(lt.get(position).startsWith("G")){
+			im.setImageResource(R.drawable.gamer);
+		}
+		if(lt.get(position).startsWith("F")){
+			LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(110, 100);
+			//im.setLayoutParams(layoutParams);
+			
+			layoutParams.setMargins(40,40,0,25);
+			im.setImageResource(R.drawable.func);
 		}
 		tv.setText(lt.get(position));
 		return r;
