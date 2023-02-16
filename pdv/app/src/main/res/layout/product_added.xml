@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:orientation="vertical">
+
+		<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_margin="10dp">
+
+			<EditText
+				android:layout_width="wrap_content"
+				android:ems="4"
+				android:layout_height="wrap_content"
+				android:hint="Cód..."
+				android:id="@+id/cod1"
+				android:inputType="number"/>
+
+			<EditText
+				android:layout_width="wrap_content"
+				android:ems="10"
+				android:layout_height="wrap_content"
+				android:hint="Produto..."
+				android:id="@+id/prod1"
+				android:inputType="text"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="10dp"
+			android:layout_marginRight="10dp"
+			android:layout_marginTop="-5dp"
+			android:layout_marginBottom="25dp">
+
+			<EditText
+				android:layout_width="wrap_content"
+				android:ems="4"
+				android:layout_height="wrap_content"
+				android:hint="Quant..."
+				android:id="@+id/quant1"
+				android:inputType="number"/>
+
+			<EditText
+				android:layout_width="wrap_content"
+				android:ems="10"
+				android:layout_height="wrap_content"
+				android:hint="Valor..."
+				android:id="@+id/val1"
+				android:inputType="numberDecimal"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/layP2">
+
+			<LinearLayout
+				android:layout_margin="10dp"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+
+				<EditText
+					android:layout_width="wrap_content"
+					android:ems="4"
+					android:layout_height="wrap_content"
+					android:hint="Cód..."
+					android:id="@+id/cod2"
+					android:inputType="number"/>
+
+				<EditText
+					android:layout_width="wrap_content"
+					android:ems="10"
+					android:layout_height="wrap_content"
+					android:hint="Produto..."
+					android:id="@+id/prod2"/>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:layout_marginTop="-5dp"
+				android:layout_marginBottom="25dp">
+
+				<EditText
+					android:layout_width="wrap_content"
+					android:ems="4"
+					android:layout_height="wrap_content"
+					android:hint="Quant..."
+					android:id="@+id/quant2"
+					android:inputType="number"/>
+
+				<EditText
+					android:layout_width="wrap_content"
+					android:ems="10"
+					android:layout_height="wrap_content"
+					android:hint="Valor..."
+					android:id="@+id/val2"
+					android:inputType="number"/>
+
+			</LinearLayout>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/layP3"
+			android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+			<LinearLayout
+				android:layout_margin="10dp"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+
+				<EditText
+					android:layout_width="wrap_content"
+					android:ems="4"
+					android:layout_height="wrap_content"
+					android:hint="Cód..."
+					android:id="@+id/cod3"
+					android:inputType="number"/>
+
+				<EditText
+					android:layout_width="wrap_content"
+					android:ems="10"
+					android:layout_height="wrap_content"
+					android:hint="Produto..."
+					android:id="@+id/prod3"/>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:layout_marginTop="-5dp"
+				android:layout_marginBottom="25dp">
+
+				<EditText
+					android:layout_width="wrap_content"
+					android:ems="4"
+					android:layout_height="wrap_content"
+					android:hint="Quant..."
+					android:id="@+id/quant3"
+					android:inputType="number"/>
+
+				<EditText
+					android:layout_width="wrap_content"
+					android:ems="10"
+					android:layout_height="wrap_content"
+					android:hint="Valor..."
+					android:id="@+id/val3"
+					android:inputType="number"/>
+
+			</LinearLayout>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/layP4"
+			android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+			<LinearLayout
+				android:layout_margin="10dp"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+
+				<EditText
+					android:layout_width="wrap_content"
+					android:ems="4"
+					android:inputType="number"
+					android:layout_height="wrap_content"
+					android:hint="Cód..."
+					android:id="@+id/cod4"/>
+
+				<EditText
+					android:layout_width="wrap_content"
+					android:ems="10"
+					android:layout_height="wrap_content"
+					android:hint="Produto..."
+					android:id="@+id/prod4"/>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_marginBottom="25dp"
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:layout_marginTop="-5dp">
+
+				<EditText
+					android:layout_width="wrap_content"
+					android:ems="4"
+					android:inputType="number"
+					android:layout_height="wrap_content"
+					android:hint="Quant..."
+					android:id="@+id/quant4"/>
+
+				<EditText
+					android:layout_width="wrap_content"
+					android:ems="10"
+					android:inputType="number"
+					android:layout_height="wrap_content"
+					android:hint="Valor..."
+					android:id="@+id/val4"/>
+
+			</LinearLayout>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/layP5"
+			android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_margin="10dp">
+
+				<EditText
+					android:layout_width="wrap_content"
+					android:ems="4"
+					android:inputType="number"
+					android:layout_height="wrap_content"
+					android:hint="Cód..."
+					android:id="@+id/cod5"/>
+
+				<EditText
+					android:layout_width="wrap_content"
+					android:ems="10"
+					android:layout_height="wrap_content"
+					android:hint="Produto..."
+					android:id="@+id/prod5"/>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:layout_marginTop="-5dp">
+
+				<EditText
+					android:layout_width="wrap_content"
+					android:ems="4"
+					android:inputType="number"
+					android:layout_height="wrap_content"
+					android:hint="Quant..."
+					android:id="@+id/quant5"/>
+
+				<EditText
+					android:layout_width="wrap_content"
+					android:ems="10"
+					android:inputType="number"
+					android:layout_height="wrap_content"
+					android:hint="Valor..."
+					android:id="@+id/val5"/>
+
+			</LinearLayout>
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+</ScrollView>
+

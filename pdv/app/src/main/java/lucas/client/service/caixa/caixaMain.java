@@ -9,6 +9,7 @@ import java.util.*;
 import android.widget.AdapterView.*;
 import android.view.*;
 import android.content.*;
+import lucas.client.service.caixa.product.*;
 
 public class caixaMain extends Activity
 {
@@ -48,24 +49,33 @@ Context c = this;
 												View r = li.inflate(R.layout.ace_list, null);
 												ListView ls = r.findViewById(R.id.acelist);
 												SearchView sc = r.findViewById(R.id.searchView);
-												ArrayList<String>list = new ArrayList<String>();
+												final ArrayList<String>list = new ArrayList<String>();
 
-												list.add("January");
-												list.add("February");
-												list.add("March");
-												list.add("April");
-												list.add("May");
-												list.add("June");
-												list.add("July");
-												list.add("August");
-												list.add("September");
-												list.add("October");
-												list.add("November");
-												list.add("December");
+												list.add("Mouse USB");
+												
 
 												final ArrayAdapter adapter = new ArrayAdapter<>(c, android.R.layout.simple_list_item_1, list);
 												ls.setAdapter(adapter);
+												ls.setOnItemClickListener(new OnItemClickListener(){
 
+														@Override
+														public void onItemClick(AdapterView<?> p1, View p2, int p3, long p4)
+														{
+															// TODO: Implement this method
+															Object sub = list.get(p3);
+															String valor = "25.50";
+															Intent it = new Intent(c, productActivity.class);
+															Bundle b = new Bundle();
+															b.putString("cod", "233");
+															b.putString("prod", sub.toString());
+															b.putString("valor", valor);
+															b.putString("quant", "1");
+															it.putExtras(b);
+															startActivity(it);
+															
+														}
+														
+												});
 												sc.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 														@Override
 														public boolean onQueryTextSubmit(String s) {
