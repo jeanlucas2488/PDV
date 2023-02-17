@@ -3,6 +3,7 @@ package lucas.client.service.etc;
 public class util
 {
 	public String loc;
+	public String money;
 	public String prod;
 	public String quant;
 	public String valor;
@@ -56,6 +57,12 @@ public class util
 	public String banes;
 	public String americ;
 	
+	public String getMoney(){
+		return money;
+	}
+	public void setMoney(String mo){
+		this.money = mo;
+	}
 	public String getLoc(){
 		return loc;
 	}
