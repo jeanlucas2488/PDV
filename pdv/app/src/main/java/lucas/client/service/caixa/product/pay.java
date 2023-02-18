@@ -24,6 +24,7 @@ public class pay extends Activity
 		// TODO: Implement this method
 		super.onCreate(savedInstanceState);
 		db = new DB(c);
+		
 		File backupDB = null;
 		try {
 
@@ -70,9 +71,6 @@ public class pay extends Activity
 				{
 					// TODO: Implement this method
 					if(opts[p3].toString().startsWith("Dinheiro")){
-						
-						
-							Toast.makeText(c, "Não deu!!!", Toast.LENGTH_LONG).show();
 							util us = new util();
 							String u = "10";
 							us.setMoney(u.toString());

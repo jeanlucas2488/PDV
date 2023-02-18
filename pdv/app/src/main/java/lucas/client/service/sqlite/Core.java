@@ -7,16 +7,16 @@ public class Core extends SQLiteOpenHelper
 	public static String name = "myDB.db";
 	
 	public Core(Context c){
-		super(c, name, null, 7);
+		super(c, name, null, 8);
 	}
 	@Override
 	public void onCreate(SQLiteDatabase db)
 	{
 		// TODO: Implement this method
 		db.execSQL("create table produtos" +
-		           "(id integer primary key autoincrement, loc TEXT, prod TEXT, quant TEXT, valor TEXT, payType TEXT, troco TEXT)");
-		db.execSQL("create table dinheiro (id integer primary key autoincrement, money TEXT)");
-		db.execSQL("create table operador (id integer primary key autoincrement, operador TEXT)");
+		           "(id integer primary key autoincrement, loc TEXT, prod TEXT, quant TEXT, valor TEXT, payType TEXT, troco TEXT);");
+		db.execSQL("create table dinheiro (id integer primary key autoincrement, money TEXT);");
+		/*db.execSQL("create table operador (id integer primary key autoincrement, operador TEXT)");
 		db.execSQL("create table fundo (id integer primary key autoincrement, fundo TEXT)");
 		db.execSQL("create table sangria (id integer primary key autoincrement, valor TEXT, motivo TEXT)");
 		db.execSQL("create table eloD (id integer primary key autoincrement, eloD TEXT)");
@@ -36,7 +36,7 @@ public class Core extends SQLiteOpenHelper
 		db.execSQL("create table banrisul (id integer primary key autoincrement, banrisul TEXT)");
 		db.execSQL("create table banriC (id integer primary key autoincrement, banriC TEXT)");
 		db.execSQL("create table banes (id integer primary key autoincrement, banes TEXT)");
-		db.execSQL("create table americ (id integer primary key autoincrement, americ TEXT)");
+		db.execSQL("create table americ (id integer primary key autoincrement, americ TEXT)");*/
 	}
 
 	@Override

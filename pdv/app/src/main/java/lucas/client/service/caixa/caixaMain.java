@@ -1,15 +1,16 @@
 package lucas.client.service.caixa;
 
 import android.app.*;
-import android.os.*;
-import lucas.client.service.*;
-import android.widget.*;
-import lucas.client.service.caixa.adapters.*;
-import java.util.*;
-import android.widget.AdapterView.*;
-import android.view.*;
 import android.content.*;
+import android.os.*;
+import android.view.*;
+import android.widget.*;
+import android.widget.AdapterView.*;
+import java.util.*;
+import lucas.client.service.*;
+import lucas.client.service.caixa.adapters.*;
 import lucas.client.service.caixa.product.*;
+import lucas.client.service.sqlite.*;
 
 public class caixaMain extends Activity
 {
@@ -21,6 +22,7 @@ Context c = this;
 		// TODO: Implement this method
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+		
 		lt.add("Acessórios");
 		lt.add("Gamer");
 		lt.add("Cliente");
