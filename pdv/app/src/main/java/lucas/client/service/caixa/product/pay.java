@@ -71,10 +71,10 @@ public class pay extends Activity
 				{
 					// TODO: Implement this method
 					if(opts[p3].toString().startsWith("Dinheiro")){
-							util us = new util();
+							
 							String u = "10";
-							us.setMoney(u.toString());
-							db.moneyIn(us);
+							
+							db.moneyIn(u.toString());
 					} 
 				}
 

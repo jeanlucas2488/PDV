@@ -66,9 +66,9 @@ public class DB
 	public void delAmeric(){
 		db.execSQL("delete from americ");
 	}
-	public void moneyIn(util us){
+	public void moneyIn(String us){
 		ContentValues ct = new ContentValues();
-		ct.put("money", us.getMoney());
+		ct.put("money", us);
 		db.insert("dinheiro", null, ct);
 	}
 	public void eloDIn(util us){
