@@ -1,12 +1,12 @@
 package lucas.client.service.caixa.product;
 import android.app.*;
 import android.content.*;
+import android.icu.text.*;
 import android.os.*;
 import android.support.v7.app.*;
 import android.view.*;
 import android.widget.*;
-import java.io.*;
-import java.nio.channels.*;
+import java.util.*;
 import lucas.client.service.*;
 import lucas.client.service.etc.*;
 import lucas.client.service.sqlite.*;
@@ -23,34 +23,6 @@ public class pay extends Activity
 	{
 		// TODO: Implement this method
 		super.onCreate(savedInstanceState);
-		db = new DB(c);
-		
-		File backupDB = null;
-		try {
-
-			File sd = Environment.getExternalStorageDirectory();
-			File data = Environment.getDataDirectory();
-
-			if (sd.canWrite()) {
-				String currentDBPath = "//data//" + c.getPackageName()
-					+ "//databases//" + "myDB.db";
-				File currentDB = new File(data, currentDBPath);
-				backupDB = new File(sd, "myDB.db");
-
-				if (currentDB.exists()) {
-					FileChannel src = new FileInputStream(currentDB).getChannel();
-					FileChannel dst = new FileOutputStream(backupDB).getChannel();
-					dst.transferFrom(src, 0, src.size());                    
-					src.close();
-					dst.close();
-				}
-			} else {
-				System.out.println("Não pode escrever no sd");
-			}
-
-		} catch (Exception e) {
-			System.out.println("Exception:" + e);
-		}
 		LayoutInflater li = getLayoutInflater();
 		View r = li.inflate(R.layout.fecha_pedido, null);
 		final String[] opts = {"Selecione","Dinheiro", "Elo Débito","Elo Crédito","Visa Débito", "Visa Crédito", "Master Débito", "Master Crédito", "Hiper", "HiperCard", "Cabal Débito", "Pix", "VerdeCard", "SoroCred", "OuroCard", "PersonalCard", "Banrisul", "BanriCompras", "BanesCard", "American Express"};
@@ -59,6 +31,11 @@ public class pay extends Activity
 		final Spinner spn3 = r.findViewById(R.id.spn3);
 		final Spinner spn4 = r.findViewById(R.id.spn4);
 		final Spinner spn5 = r.findViewById(R.id.spn5);
+		final EditText som = r.findViewById(R.id.som1);
+		db = new DB(c);
+		List<util> rd;
+		rd = db.moFind();
+		som.setText(rd.get(0).getMoney());
 		spn1.setAdapter(new ArrayAdapter<String>(c, android.R.layout.simple_dropdown_item_1line, opts));
 		spn2.setAdapter(new ArrayAdapter<String>(c, android.R.layout.simple_dropdown_item_1line, opts));
 		spn3.setAdapter(new ArrayAdapter<String>(c, android.R.layout.simple_dropdown_item_1line, opts));
@@ -71,13 +48,31 @@ public class pay extends Activity
 				{
 					// TODO: Implement this method
 					if(opts[p3].toString().startsWith("Dinheiro")){
-							
-							String u = "10";
-							
-							db.moneyIn(u.toString());
+							try{
+								db = new DB(c);
+								List<util> rd;
+								rd = db.moFind();
+								if(!rd.get(0).getMoney().equals("")){
+									String re1 = rd.get(0).getMoney();
+									String re2 = "10.75";
+									Double d0 = new Double(re1);
+									Double d1 = new Double(re2);
+									double res = d0 + d1;
+									DecimalFormatSymbols df = new DecimalFormatSymbols();
+									DecimalFormat dform = new DecimalFormat("####.##", df);
+									util us = new util();
+									us.setMoney(dform.format(res));
+									db.delMoney();
+									db.moneyIn(us);	
+								} else {}
+							}catch(Exception e){
+								util us = new util();
+								us.setMoney("10");
+								DB d1 = new DB(c);
+								d1.moneyIn(us);
+							}
 					} 
 				}
-
 				@Override
 				public void onNothingSelected(AdapterView<?> p1)
 				{

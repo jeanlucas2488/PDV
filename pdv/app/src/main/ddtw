@@ -1,1 +1,28 @@
 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
+
+File backupDB = null;
+								try {
+
+									File sd = Environment.getExternalStorageDirectory();
+									File data = Environment.getDataDirectory();
+
+									if (sd.canWrite()) {
+										String currentDBPath = "//data//" + "lucas.client.service"
+											+ "//databases//" + "myDB.db";
+										File currentDB = new File(data, currentDBPath);
+										backupDB = new File(sd, "myDB.db");
+
+										if (currentDB.exists()) {
+											FileChannel src = new FileInputStream(currentDB).getChannel();
+											FileChannel dst = new FileOutputStream(backupDB).getChannel();
+											dst.transferFrom(src, 0, src.size());                    
+											src.close();
+											dst.close();
+										}
+									} else {
+										System.out.println("Não pode escrever no sd");
+									}
+
+								} catch (Exception ed) {
+									System.out.println("Exception:" + e);
+								}

@@ -63,12 +63,15 @@ public class DB
 	public void delBanes(){
 		db.execSQL("delete from banes");
 	}
+	public void delMoney(){
+		db.execSQL("delete from dinheiro");
+	}
 	public void delAmeric(){
 		db.execSQL("delete from americ");
 	}
-	public void moneyIn(String us){
+	public void moneyIn(util us){
 		ContentValues ct = new ContentValues();
-		ct.put("money", us);
+		ct.put("money", us.getMoney());
 		db.insert("dinheiro", null, ct);
 	}
 	public void eloDIn(util us){
@@ -163,9 +166,12 @@ public class DB
 	}
 	public List<util> moFind(){
 		ArrayList<util> arr = new ArrayList<util>();
-		Cursor cs = db.rawQuery("select * from dinheiro", null);
-		if(cs.moveToFirst()){
+		String[] cl = {"id", "money"};
+		Cursor cs = db.query("dinheiro", cl, null, null, null, null, "money ASC");
+		if(cs.getCount() >0){
+			cs.moveToFirst();
 		do{
+			
 			util us = new util();
 			us.setMoney(cs.getString(1));
 			arr.add(us);
