@@ -66,6 +66,7 @@
 		</LinearLayout>
 
 		<LinearLayout
+			android:id="@+id/spnlay2"
 			android:orientation="horizontal"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
@@ -121,6 +122,7 @@
 		</LinearLayout>
 
 		<LinearLayout
+			android:id="@+id/spnlay3"
 			android:orientation="horizontal"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
@@ -176,6 +178,7 @@
 		</LinearLayout>
 
 		<LinearLayout
+			android:id="@+id/spnlay4"
 			android:orientation="horizontal"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
@@ -231,6 +234,7 @@
 		</LinearLayout>
 
 		<LinearLayout
+			android:id="@+id/spnlay5"
 			android:orientation="horizontal"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"

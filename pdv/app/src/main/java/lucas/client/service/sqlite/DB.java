@@ -164,6 +164,258 @@ public class DB
 		ct.put("americ", us.getAmeric());
 		db.insert("americ", null, ct);
 	}
+	public List<util> ameFind(){
+		ArrayList<util> arr = new ArrayList<util>();
+		String[] cl = {"id", "americ"};
+		Cursor cs = db.query("americ", cl, null, null, null, null, "americ ASC");
+		if(cs.getCount() >0){
+			cs.moveToFirst();
+			do{
+				util us = new util();
+				us.setAmeric(cs.getString(1));
+				arr.add(us);
+			}while(cs.moveToNext());
+		}
+		return arr;
+	}
+	public List<util> banesFind(){
+		ArrayList<util> arr = new ArrayList<util>();
+		String[] cl = {"id", "banes"};
+		Cursor cs = db.query("banes", cl, null, null, null, null, "banes ASC");
+		if(cs.getCount() >0){
+			cs.moveToFirst();
+			do{
+				util us = new util();
+				us.setBanes(cs.getString(1));
+				arr.add(us);
+			}while(cs.moveToNext());
+		}
+		return arr;
+	}
+	public List<util> banriCFind(){
+		ArrayList<util> arr = new ArrayList<util>();
+		String[] cl = {"id", "banriC"};
+		Cursor cs = db.query("banriC", cl, null, null, null, null, "banriC ASC");
+		if(cs.getCount() >0){
+			cs.moveToFirst();
+			do{
+				util us = new util();
+				us.setBanric(cs.getString(1));
+				arr.add(us);
+			}while(cs.moveToNext());
+		}
+		return arr;
+	}
+	public List<util> banriFind(){
+		ArrayList<util> arr = new ArrayList<util>();
+		String[] cl = {"id", "banrisul"};
+		Cursor cs = db.query("banrisul", cl, null, null, null, null, "banrisul ASC");
+		if(cs.getCount() >0){
+			cs.moveToFirst();
+			do{
+				util us = new util();
+				us.setBanric(cs.getString(1));
+				arr.add(us);
+			}while(cs.moveToNext());
+		}
+		return arr;
+	}
+	public List<util> ouroFind(){
+		ArrayList<util> arr = new ArrayList<util>();
+		String[] cl = {"id", "ouro"};
+		Cursor cs = db.query("ouro", cl, null, null, null, null, "ouro ASC");
+		if(cs.getCount() >0){
+			cs.moveToFirst();
+			do{
+				util us = new util();
+				us.setOuro(cs.getString(1));
+				arr.add(us);
+			}while(cs.moveToNext());
+		}
+		return arr;
+	}
+	public List<util> personFind(){
+		ArrayList<util> arr = new ArrayList<util>();
+		String[] cl = {"id", "person"};
+		Cursor cs = db.query("person", cl, null, null, null, null, "person ASC");
+		if(cs.getCount() >0){
+			cs.moveToFirst();
+			do{
+				util us = new util();
+				us.setPerson(cs.getString(1));
+				arr.add(us);
+			}while(cs.moveToNext());
+		}
+		return arr;
+	}
+	public List<util> soroFind(){
+		ArrayList<util> arr = new ArrayList<util>();
+		String[] cl = {"id", "soro"};
+		Cursor cs = db.query("soro", cl, null, null, null, null, "soro ASC");
+		if(cs.getCount() >0){
+			cs.moveToFirst();
+			do{
+				util us = new util();
+				us.setSoro(cs.getString(1));
+				arr.add(us);
+			}while(cs.moveToNext());
+		}
+		return arr;
+	}
+	public List<util> verdeFind(){
+		ArrayList<util> arr = new ArrayList<util>();
+		String[] cl = {"id", "verde"};
+		Cursor cs = db.query("verde", cl, null, null, null, null, "verde ASC");
+		if(cs.getCount() >0){
+			cs.moveToFirst();
+			do{
+				util us = new util();
+				us.setVerde(cs.getString(1));
+				arr.add(us);
+			}while(cs.moveToNext());
+		}
+		return arr;
+	}
+	public List<util> pixFind(){
+		ArrayList<util> arr = new ArrayList<util>();
+		String[] cl = {"id", "pix"};
+		Cursor cs = db.query("pix", cl, null, null, null, null, "pix ASC");
+		if(cs.getCount() >0){
+			cs.moveToFirst();
+			do{
+				util us = new util();
+				us.setPix(cs.getString(1));
+				arr.add(us);
+			}while(cs.moveToNext());
+		}
+		return arr;
+	}
+	public List<util> cabalFind(){
+		ArrayList<util> arr = new ArrayList<util>();
+		String[] cl = {"id", "cabal"};
+		Cursor cs = db.query("cabal", cl, null, null, null, null, "cabal ASC");
+		if(cs.getCount() >0){
+			cs.moveToFirst();
+			do{
+				util us = new util();
+				us.setCabal(cs.getString(1));
+				arr.add(us);
+			}while(cs.moveToNext());
+		}
+		return arr;
+	}
+	public List<util> hiperCFind(){
+		ArrayList<util> arr = new ArrayList<util>();
+		String[] cl = {"id", "hiperC"};
+		Cursor cs = db.query("hiperC", cl, null, null, null, null, "hiperC ASC");
+		if(cs.getCount() >0){
+			cs.moveToFirst();
+			do{
+				util us = new util();
+				us.setHiperC(cs.getString(1));
+				arr.add(us);
+			}while(cs.moveToNext());
+		}
+		return arr;
+	}
+	public List<util> hiperFind(){
+		ArrayList<util> arr = new ArrayList<util>();
+		String[] cl = {"id", "hiper"};
+		Cursor cs = db.query("hiper", cl, null, null, null, null, "hiper ASC");
+		if(cs.getCount() >0){
+			cs.moveToFirst();
+			do{
+				util us = new util();
+				us.setHiper(cs.getString(1));
+				arr.add(us);
+			}while(cs.moveToNext());
+		}
+		return arr;
+	}
+	public List<util> masterCFind(){
+		ArrayList<util> arr = new ArrayList<util>();
+		String[] cl = {"id", "masterC"};
+		Cursor cs = db.query("masterC", cl, null, null, null, null, "masterC ASC");
+		if(cs.getCount() >0){
+			cs.moveToFirst();
+			do{
+				util us = new util();
+				us.setMasterC(cs.getString(1));
+				arr.add(us);
+			}while(cs.moveToNext());
+		}
+		return arr;
+	}
+	public List<util> masterDFind(){
+		ArrayList<util> arr = new ArrayList<util>();
+		String[] cl = {"id", "masterD"};
+		Cursor cs = db.query("masterD", cl, null, null, null, null, "masterD ASC");
+		if(cs.getCount() >0){
+			cs.moveToFirst();
+			do{
+				util us = new util();
+				us.setMasterD(cs.getString(1));
+				arr.add(us);
+			}while(cs.moveToNext());
+		}
+		return arr;
+	}
+	public List<util> visaCFind(){
+		ArrayList<util> arr = new ArrayList<util>();
+		String[] cl = {"id", "visaC"};
+		Cursor cs = db.query("visaC", cl, null, null, null, null, "visaC ASC");
+		if(cs.getCount() >0){
+			cs.moveToFirst();
+			do{
+				util us = new util();
+				us.setVisaC(cs.getString(1));
+				arr.add(us);
+			}while(cs.moveToNext());
+		}
+		return arr;
+	}
+	public List<util> visaDFind(){
+		ArrayList<util> arr = new ArrayList<util>();
+		String[] cl = {"id", "visaD"};
+		Cursor cs = db.query("visaD", cl, null, null, null, null, "visaD ASC");
+		if(cs.getCount() >0){
+			cs.moveToFirst();
+			do{
+				util us = new util();
+				us.setVisaD(cs.getString(1));
+				arr.add(us);
+			}while(cs.moveToNext());
+		}
+		return arr;
+	}
+	public List<util> eloCFind(){
+		ArrayList<util> arr = new ArrayList<util>();
+		String[] cl = {"id", "eloC"};
+		Cursor cs = db.query("eloC", cl, null, null, null, null, "eloC ASC");
+		if(cs.getCount() >0){
+			cs.moveToFirst();
+			do{
+				util us = new util();
+				us.setEloC(cs.getString(1));
+				arr.add(us);
+			}while(cs.moveToNext());
+		}
+		return arr;
+	}
+	public List<util> eloDFind(){
+		ArrayList<util> arr = new ArrayList<util>();
+		String[] cl = {"id", "eloD"};
+		Cursor cs = db.query("eloD", cl, null, null, null, null, "eloD ASC");
+		if(cs.getCount() >0){
+			cs.moveToFirst();
+			do{
+				util us = new util();
+				us.setEloD(cs.getString(1));
+				arr.add(us);
+			}while(cs.moveToNext());
+		}
+		return arr;
+	}
 	public List<util> moFind(){
 		ArrayList<util> arr = new ArrayList<util>();
 		String[] cl = {"id", "money"};
@@ -171,11 +423,9 @@ public class DB
 		if(cs.getCount() >0){
 			cs.moveToFirst();
 		do{
-			
 			util us = new util();
 			us.setMoney(cs.getString(1));
-			arr.add(us);
-			
+			arr.add(us);	
 		}while(cs.moveToNext());
 		}
 		return arr;
