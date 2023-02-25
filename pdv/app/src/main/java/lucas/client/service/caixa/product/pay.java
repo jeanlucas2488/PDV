@@ -3,20 +3,22 @@ import android.app.*;
 import android.content.*;
 import android.icu.text.*;
 import android.os.*;
-import android.support.v7.app.*;
 import android.view.*;
+import android.view.View.*;
 import android.widget.*;
 import java.util.*;
 import lucas.client.service.*;
 import lucas.client.service.etc.*;
 import lucas.client.service.sqlite.*;
+import android.widget.TableLayout.*;
 
-import android.support.v7.app.AlertDialog;
 
 public class pay extends Activity
 {
 	DB db;
 	Context c = this;
+	Button fim, tipo;
+	ImageView im1, im2, im3, im4, im5;
 	LinearLayout lay1, lay2, lay3, lay4, lay5;
 	LinearLayout spnlay2, spnlay3, spnlay4, spnlay5;
 	EditText som1, som2, som3, som4, som5, 
@@ -29,13 +31,14 @@ public class pay extends Activity
 		super.onCreate(savedInstanceState);
 		LayoutInflater li = getLayoutInflater();
 		View r = li.inflate(R.layout.fecha_pedido, null);
-		final String[] opts = {"Selecione","Dinheiro", "Elo Débito","Elo Crédito","Visa Débito", "Visa Crédito", "Master Débito", "Master Crédito", "Hiper", "HiperCard", "Cabal Débito", "Pix", "VerdeCard", "SoroCred", "OuroCard", "PersonalCard", "Banrisul", "BanriCompras", "BanesCard", "American Express"};
+		final String[] opts = {"Selecione","Dinheiro", "Elo Débito","Elo Crédito","Visa Débito", "Visa Crédito", "Master Débito", "Master Crédito", "Hiper", "Hiper Card", "Cabal Débito", "Pix", "Verde Card", "Soro Cred", "Ouro Card", "Personal Card", "Banrisul", "Banri Compras", "Banes Card", "American Express"};
 		final Spinner spn1 = r.findViewById(R.id.spn1);
 		final Spinner spn2 = r.findViewById(R.id.spn2);
 		final Spinner spn3 = r.findViewById(R.id.spn3);
 		final Spinner spn4 = r.findViewById(R.id.spn4);
 		final Spinner spn5 = r.findViewById(R.id.spn5);
-		
+		fim = r.findViewById(R.id.finish);
+		tipo = r.findViewById(R.id.tipo);
 		lay1 = r.findViewById(R.id.lay1);
 		lay2 = r.findViewById(R.id.lay2);
 		lay3 = r.findViewById(R.id.lay3);
@@ -50,6 +53,11 @@ public class pay extends Activity
 		som3 = r.findViewById(R.id.som3);
 		som4 = r.findViewById(R.id.som4);
 		som5 = r.findViewById(R.id.som5);
+		im1 = r.findViewById(R.id.im1);
+		im2 = r.findViewById(R.id.im2);
+		im3 = r.findViewById(R.id.im3);
+		im4 = r.findViewById(R.id.im4);
+		im5 = r.findViewById(R.id.im5);
 		pagto1 = r.findViewById(R.id.pagto1);
 		pagto2 = r.findViewById(R.id.pagto2);
 		pagto3 = r.findViewById(R.id.pagto3);
@@ -73,6 +81,56 @@ public class pay extends Activity
 		spn3.setAdapter(new ArrayAdapter<String>(c, android.R.layout.simple_dropdown_item_1line, opts));
 		spn4.setAdapter(new ArrayAdapter<String>(c, android.R.layout.simple_dropdown_item_1line, opts));
 		spn5.setAdapter(new ArrayAdapter<String>(c, android.R.layout.simple_dropdown_item_1line, opts));
+		fim.setOnClickListener(new OnClickListener(){
+
+				@Override
+				public void onClick(View p1)
+				{
+					// TODO: Implement this method
+				}
+		});
+		tipo.setOnClickListener(new OnClickListener(){
+
+				@Override
+				public void onClick(View p1)
+				{
+					// TODO: Implement this method
+					String[] op = new String[] {"2 Pagamentos", "3 Pagamentos", "4 Pagamentos", "5 Pagamentos"};
+					AlertDialog.Builder sel = new AlertDialog.Builder(pay.this, AlertDialog.THEME_DEVICE_DEFAULT_DARK);
+					sel.setTitle("+1 Tipo Pagto");
+					sel.setItems(op, new DialogInterface.OnClickListener() {
+
+							@Override
+							public void onClick(DialogInterface p1, int p2)
+							{
+								// TODO: Implement this method
+								switch(p2){
+									case 0:
+										spnlay2.setVisibility(View.VISIBLE);
+
+										break;
+									case 1:
+										spnlay2.setVisibility(View.VISIBLE);
+										spnlay3.setVisibility(View.VISIBLE);
+										break;
+									case 2:
+										spnlay2.setVisibility(View.VISIBLE);
+										spnlay3.setVisibility(View.VISIBLE);
+										spnlay4.setVisibility(View.VISIBLE);
+										break;
+									case 3:
+										spnlay2.setVisibility(View.VISIBLE);
+										spnlay3.setVisibility(View.VISIBLE);
+										spnlay4.setVisibility(View.VISIBLE);
+										spnlay5.setVisibility(View.VISIBLE);
+										break;
+								}
+							}
+						});
+					sel.create();
+					sel.show();
+				}
+			});
 		spn1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
 
 				@Override
@@ -107,7 +165,15 @@ public class pay extends Activity
 								d1.moneyIn(us);
 							}
 					} else {lay1.setVisibility(View.GONE);}
+					if(opts[p3].toString().startsWith("selecione")){
+						som1.setEms(7);
+					}
 					if(opts[p3].toString().startsWith("Elo Débito")){
+						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(95,90);
+						pr.setMargins(10,0,-20,0);
+						som1.setEms(4);
+						im1.setLayoutParams(pr);
+						im1.setImageResource(R.drawable.elo);
 						try{
 							db = new DB(c);
 							List<util> rd;
@@ -2719,6 +2785,7 @@ public class pay extends Activity
 		AlertDialog.Builder b = new AlertDialog.Builder(c, R.style.dialog);
 		b.setTitle("Fechar Conta");
 		b.setView(r);
+		
 		b.create();
 		b.show();
 	}

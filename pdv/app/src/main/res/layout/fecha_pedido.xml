@@ -18,14 +18,17 @@
 
 			<EditText
 				android:layout_width="wrap_content"
-				android:ems="5"
+				android:ems="7"
 				android:layout_height="wrap_content"
 				android:hint="Soma..."
 				android:id="@+id/som1"
 				android:inputType="numberDecimal"
 				android:textColorHint="#FFFFFF"
 				android:textColor="#FFFFFF"/>
-
+			<ImageView
+				android:id="@+id/im1"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" />
 			<Spinner
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
@@ -40,7 +43,7 @@
 			android:layout_height="wrap_content"
 			android:layout_marginLeft="10dp"
 			android:layout_marginRight="10dp"
-			android:layout_marginTop="-5dp"
+			android:layout_marginTop="-10dp"
 			android:id="@+id/lay1">
 
 			<EditText
@@ -66,6 +69,7 @@
 		</LinearLayout>
 
 		<LinearLayout
+			android:layout_marginTop="-10dp"
 			android:id="@+id/spnlay2"
 			android:orientation="horizontal"
 			android:layout_width="match_parent"
@@ -74,14 +78,17 @@
 
 			<EditText
 				android:layout_width="wrap_content"
-				android:ems="5"
+				android:ems="7"
 				android:layout_height="wrap_content"
 				android:hint="Soma..."
 				android:id="@+id/som2"
 				android:inputType="numberDecimal"
 				android:textColor="#FFFFFF"
 				android:textColorHint="#FFFFFF"/>
-
+			<ImageView
+				android:id="@+id/im2"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" />
 			<Spinner
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
@@ -96,7 +103,7 @@
 			android:layout_height="wrap_content"
 			android:layout_marginLeft="10dp"
 			android:layout_marginRight="10dp"
-			android:layout_marginTop="-5dp"
+			android:layout_marginTop="-10dp"
 			android:id="@+id/lay2">
 
 			<EditText
@@ -122,6 +129,7 @@
 		</LinearLayout>
 
 		<LinearLayout
+			android:layout_marginTop="-10dp"
 			android:id="@+id/spnlay3"
 			android:orientation="horizontal"
 			android:layout_width="match_parent"
@@ -130,14 +138,17 @@
 
 			<EditText
 				android:layout_width="wrap_content"
-				android:ems="5"
+				android:ems="7"
 				android:layout_height="wrap_content"
 				android:hint="Soma..."
 				android:id="@+id/som3"
 				android:inputType="numberDecimal"
 				android:textColor="#FFFFFF"
 				android:textColorHint="#FFFDFC"/>
-
+			<ImageView
+				android:id="@+id/im3"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" />
 			<Spinner
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
@@ -152,7 +163,7 @@
 			android:layout_height="wrap_content"
 			android:layout_marginLeft="10dp"
 			android:layout_marginRight="10dp"
-			android:layout_marginTop="-5dp"
+			android:layout_marginTop="-10dp"
 			android:id="@+id/lay3">
 
 			<EditText
@@ -178,6 +189,7 @@
 		</LinearLayout>
 
 		<LinearLayout
+			android:layout_marginTop="-10dp"
 			android:id="@+id/spnlay4"
 			android:orientation="horizontal"
 			android:layout_width="match_parent"
@@ -186,14 +198,17 @@
 
 			<EditText
 				android:layout_width="wrap_content"
-				android:ems="5"
+				android:ems="7"
 				android:layout_height="wrap_content"
 				android:hint="Soma..."
 				android:id="@+id/som4"
 				android:inputType="numberDecimal"
 				android:textColor="#FFFAFA"
 				android:textColorHint="#FFF2F3"/>
-
+			<ImageView
+				android:id="@+id/im4"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" />
 			<Spinner
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
@@ -208,7 +223,7 @@
 			android:layout_height="wrap_content"
 			android:layout_marginLeft="10dp"
 			android:layout_marginRight="10dp"
-			android:layout_marginTop="-5dp"
+			android:layout_marginTop="-10dp"
 			android:id="@+id/lay4">
 
 			<EditText
@@ -234,6 +249,7 @@
 		</LinearLayout>
 
 		<LinearLayout
+			android:layout_marginTop="-10dp"
 			android:id="@+id/spnlay5"
 			android:orientation="horizontal"
 			android:layout_width="match_parent"
@@ -242,14 +258,17 @@
 
 			<EditText
 				android:layout_width="wrap_content"
-				android:ems="5"
+				android:ems="7"
 				android:layout_height="wrap_content"
 				android:hint="Soma..."
 				android:id="@+id/som5"
 				android:inputType="numberDecimal"
 				android:textColor="#FFFFFE"
 				android:textColorHint="#FFF5F8"/>
-
+			<ImageView
+				android:id="@+id/im5"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" />
 			<Spinner
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
@@ -264,7 +283,7 @@
 			android:layout_height="wrap_content"
 			android:layout_marginLeft="10dp"
 			android:layout_marginRight="10dp"
-			android:layout_marginTop="-5dp"
+			android:layout_marginTop="-10dp"
 			android:id="@+id/lay5">
 
 			<EditText
@@ -288,7 +307,23 @@
 				android:textColorHint="#FFF1F6"/>
 
 		</LinearLayout>
-
+<LinearLayout
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content">
+		<Button
+			android:id="@+id/finish"
+			android:layout_width="wrap_content"
+			style="?android:attr/buttonBarButtonStyle"
+			android:layout_height="wrap_content"
+			android:text="Finalizar"/>
+		<Button
+			android:id="@+id/tipo"
+			android:gravity="right"
+			android:layout_width="wrap_content"
+			style="?android:attr/buttonBarButtonStyle"
+			android:layout_height="wrap_content"
+			android:text="+1 Tipo"/>
+</LinearLayout>
 	</LinearLayout>
 
 </ScrollView>

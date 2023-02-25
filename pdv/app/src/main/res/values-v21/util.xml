@@ -4,6 +4,7 @@
 	</style>
 		<style name="dialog" parent="Theme.AppCompat.Light.Dialog.Alert">
 			<item name="android:textColor">#ffffff</item>
+			<item name="android:colorPrimary">#ffffff</item>
 			<item name="android:windowBackground">@drawable/pop</item>
 		</style>
 	</resources>
