@@ -99,7 +99,46 @@ public class productActivity extends Activity
 			case R.id.add:
 				return true;
 			case R.id.finalizar:
+				String result2, result3, result4, result5;
+				if(!valor2.getText().toString().equals("")){
+					result2 = valor2.getText().toString();
+				} else{result2 = "0";}
+				if(!valor3.getText().toString().equals("")){
+					result3 = valor3.getText().toString();
+				} else{result3 = "0";}
+				if(!valor4.getText().toString().equals("")){
+					result4 = valor4.getText().toString();
+				} else{result4 = "0";}
+				if(!valor5.getText().toString().equals("")){
+					result5 = valor5.getText().toString();
+				} else{result5 = "0";}
 				Intent it = new Intent(c, pay.class);
+				Bundle b = new Bundle();
+				b.putString("loc1", cod1.getText().toString());
+				b.putString("prod1", prod1.getText().toString());
+				b.putString("quant1", quant1.getText().toString());
+				b.putString("valor1", valor1.getText().toString());
+				
+				b.putString("loc2", cod2.getText().toString());
+				b.putString("prod2", prod2.getText().toString());
+				b.putString("quant2", quant2.getText().toString());
+				b.putString("valor2", result2.toString());
+				
+				b.putString("loc3", cod3.getText().toString());
+				b.putString("prod3", prod3.getText().toString());
+				b.putString("quant3", quant3.getText().toString());
+				b.putString("valor3", result3.toString());
+				
+				b.putString("loc4", cod4.getText().toString());
+				b.putString("prod4", prod4.getText().toString());
+				b.putString("quant4", quant4.getText().toString());
+				b.putString("valor4", result4.toString());
+				
+				b.putString("loc5", cod5.getText().toString());
+				b.putString("prod5", prod5.getText().toString());
+				b.putString("quant5", quant5.getText().toString());
+				b.putString("valor5", result5.toString());
+				it.putExtras(b);
 				startActivity(it);
 				return true;
 		}

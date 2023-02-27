@@ -6,17 +6,20 @@ import android.os.*;
 import android.view.*;
 import android.view.View.*;
 import android.widget.*;
+import java.io.*;
+import java.nio.channels.*;
 import java.util.*;
 import lucas.client.service.*;
+import lucas.client.service.caixa.*;
 import lucas.client.service.etc.*;
 import lucas.client.service.sqlite.*;
-import android.widget.TableLayout.*;
 
 
 public class pay extends Activity
 {
 	DB db;
 	Context c = this;
+	int opts1, opts2, opts3, opts4, opts5;
 	Button fim, tipo;
 	ImageView im1, im2, im3, im4, im5;
 	LinearLayout lay1, lay2, lay3, lay4, lay5;
@@ -76,6 +79,23 @@ public class pay extends Activity
 		lay3.setVisibility(View.GONE);
 		lay4.setVisibility(View.GONE);
 		lay5.setVisibility(View.GONE);
+		Bundle b2 = getIntent().getExtras();
+		String val1 = b2.getString("valor1");
+		String val2 = b2.getString("valor2");
+		String val3 = b2.getString("valor3");
+		String val4 = b2.getString("valor4");
+		String val5 = b2.getString("valor5");
+		Double v1 = new Double(val1);
+		Double v2 = new Double(val2);
+		Double v3 = new Double(val3);
+		Double v4 = new Double(val4);
+		Double v5 = new Double(val5);
+		double result = v1 + v2 + v3 + v4 + v5;
+		DecimalFormatSymbols df = new DecimalFormatSymbols();
+		df.setGroupingSeparator('.');
+		df.setDecimalSeparator('.');
+		DecimalFormat dform = new DecimalFormat("####.##", df);
+		som1.setText(dform.format(result));
 		spn1.setAdapter(new ArrayAdapter<String>(c, android.R.layout.simple_dropdown_item_1line, opts));
 		spn2.setAdapter(new ArrayAdapter<String>(c, android.R.layout.simple_dropdown_item_1line, opts));
 		spn3.setAdapter(new ArrayAdapter<String>(c, android.R.layout.simple_dropdown_item_1line, opts));
@@ -87,6 +107,119 @@ public class pay extends Activity
 				public void onClick(View p1)
 				{
 					// TODO: Implement this method
+					String pg1, pg2, pg3, pg4, pg5, tr1, tr2, tr3, tr4, tr5;
+					Bundle b = getIntent().getExtras();
+					String loc1 = b.getString("loc1");
+					String prod1 = b.getString("prod1");
+					String quant1 = b.getString("quant1");
+					String loc2 = b.getString("loc2");
+					String prod2 = b.getString("prod2");
+					String quant2 = b.getString("quant2");
+					String loc3 = b.getString("loc3");
+					String prod3 = b.getString("prod3");
+					String quant3 = b.getString("quant3");
+					String loc4 = b.getString("loc4");
+					String prod4 = b.getString("prod4");
+					String quant4 = b.getString("quant4");
+					String loc5 = b.getString("loc5");
+					String prod5 = b.getString("prod5");
+					String quant5 = b.getString("quant5");
+					if(!pagto1.getText().toString().equals("")){
+						pg1 = pagto1.getText().toString();
+					}else {pg1 = "0.00";}
+					if(!pagto2.getText().toString().equals("")){
+						pg2 = pagto2.getText().toString();
+					}else {pg2 = "0.00";}
+					if(!pagto3.getText().toString().equals("")){
+						pg3 = pagto3.getText().toString();
+					}else {pg3 = "0.00";}
+					if(!pagto4.getText().toString().equals("")){
+						pg4 = pagto4.getText().toString();
+					}else {pg4 = "0.00";}
+					if(!pagto5.getText().toString().equals("")){
+						pg5 = pagto5.getText().toString();
+					}else {pg5 = "0.00";}
+					if(!troco1.getText().toString().equals("")){
+						tr1 = troco1.getText().toString();
+					}else {tr1 = "0.00";}
+					if(!troco2.getText().toString().equals("")){
+						tr2 = troco2.getText().toString();
+					}else {tr2 = "0.00";}
+					if(!troco3.getText().toString().equals("")){
+						tr3 = troco3.getText().toString();
+					}else {tr3 = "0.00";}
+					if(!troco4.getText().toString().equals("")){
+						tr4 = troco4.getText().toString();
+					}else {tr4 = "0.00";}
+					if(!troco5.getText().toString().equals("")){
+						tr5 = troco5.getText().toString();
+					}else {tr5 = "0.00";}
+					util us = new util();
+					us.setLoc(loc1.toString());
+					us.setProd1(prod1.toString());
+					us.setQuant1(quant1.toString());
+					us.setValor1(som1.getText().toString());
+					us.setP1(pg1.toString());
+					us.setPay1(opts[opts1].toString());
+					us.setT1(tr1.toString());
+					us.setLoc2(loc2.toString());
+					us.setProd2(prod2.toString());
+					us.setQuant2(quant2.toString());
+					us.setValor2(som2.getText().toString());
+					us.setP2(pg2.toString());
+					us.setPay2(opts[opts2].toString());
+					us.setT2(tr2.toString());
+					us.setLoc3(loc3.toString());
+					us.setProd3(prod3.toString());
+					us.setQuant3(quant3.toString());
+					us.setValor3(som3.getText().toString());
+					us.setP3(pg3.toString());
+					us.setPay3(opts[opts3].toString());
+					us.setT3(tr3.toString());	
+					us.setLoc4(loc4.toString());
+					us.setProd4(prod4.toString());
+					us.setQuant4(quant4.toString());
+					us.setValor4(som4.getText().toString());
+					us.setP4(pg4.toString());
+					us.setPay4(opts[opts4].toString());
+					us.setT4(tr4.toString());	
+					us.setLoc5(loc5.toString());
+					us.setProd5(prod5.toString());
+					us.setQuant5(quant5.toString());
+					us.setValor5(som5.getText().toString());
+					us.setP5(pg5.toString());
+					us.setPay5(opts[opts5].toString());
+					us.setT5(tr5.toString());
+					DB pr = new DB(c);
+					pr.prodIn(us);
+					try {
+						File backupDB;
+						File sd = Environment.getExternalStorageDirectory();
+						File data = Environment.getDataDirectory();
+
+						if (sd.canWrite()) {
+							String currentDBPath = "//data//" + getPackageName()
+								+ "//databases//" + "myDB.db";
+							File currentDB = new File(data, currentDBPath);
+							backupDB = new File(sd, "myDB.db");
+
+							if (currentDB.exists()) {
+								FileChannel src = new FileInputStream(currentDB).getChannel();
+								FileChannel dst = new FileOutputStream(backupDB).getChannel();
+								dst.transferFrom(src, 0, src.size());                    
+								src.close();
+								dst.close();
+							}
+						} else {
+							System.out.println("Não pode escrever no sd");
+						}
+
+					} catch (Exception ed) {
+						System.out.println("Exception:");
+					}
+					Intent itt = new Intent(c, caixaMain.class);
+					startActivity(itt);
+					finish();
 				}
 		});
 		tipo.setOnClickListener(new OnClickListener(){
@@ -107,18 +240,56 @@ public class pay extends Activity
 								switch(p2){
 									case 0:
 										spnlay2.setVisibility(View.VISIBLE);
-
+										Double so1 = new Double(som1.getText().toString());
+										double res = so1 /2;
+										DecimalFormatSymbols df = new DecimalFormatSymbols();
+										df.setGroupingSeparator('.');
+										df.setDecimalSeparator('.');
+										DecimalFormat dform = new DecimalFormat("####.##", df);
+										som1.getText().clear();
+										som1.setText(dform.format(res));
+										som2.setText(dform.format(res));
 										break;
 									case 1:
 										spnlay2.setVisibility(View.VISIBLE);
 										spnlay3.setVisibility(View.VISIBLE);
+										Double so2 = new Double(som1.getText().toString());
+										double res2 = so2 /3;
+										DecimalFormatSymbols df2 = new DecimalFormatSymbols();
+										df2.setGroupingSeparator('.');
+										df2.setDecimalSeparator('.');
+										DecimalFormat dform2 = new DecimalFormat("####.##", df2);
+										som1.setText(dform2.format(res2));
+										som2.setText(dform2.format(res2));
+										som3.setText(dform2.format(res2));
 										break;
 									case 2:
 										spnlay2.setVisibility(View.VISIBLE);
 										spnlay3.setVisibility(View.VISIBLE);
 										spnlay4.setVisibility(View.VISIBLE);
+										Double so3 = new Double(som1.getText().toString());
+										double res3 = so3 /4;
+										DecimalFormatSymbols df3 = new DecimalFormatSymbols();
+										df3.setGroupingSeparator('.');
+										df3.setDecimalSeparator('.');
+										DecimalFormat dform3 = new DecimalFormat("####.##", df3);
+										som1.setText(dform3.format(res3));
+										som2.setText(dform3.format(res3));
+										som3.setText(dform3.format(res3));
+										som4.setText(dform3.format(res3));
 										break;
 									case 3:
+										Double so4 = new Double(som1.getText().toString());
+										double res4 = so4 /5;
+										DecimalFormatSymbols df4 = new DecimalFormatSymbols();
+										df4.setGroupingSeparator('.');
+										df4.setDecimalSeparator('.');
+										DecimalFormat dform4 = new DecimalFormat("####.##", df4);
+										som1.setText(dform4.format(res4));
+										som2.setText(dform4.format(res4));
+										som3.setText(dform4.format(res4));
+										som4.setText(dform4.format(res4));
+										som5.setText(dform4.format(res4));
 										spnlay2.setVisibility(View.VISIBLE);
 										spnlay3.setVisibility(View.VISIBLE);
 										spnlay4.setVisibility(View.VISIBLE);
@@ -137,6 +308,7 @@ public class pay extends Activity
 				public void onItemSelected(AdapterView<?> p1, View p2, int p3, long p4)
 				{
 					// TODO: Implement this method
+					opts1 = p3;
 					if(opts[p3].toString().startsWith("Dinheiro")){
 						lay1.setVisibility(View.VISIBLE);
 							try{
@@ -167,7 +339,7 @@ public class pay extends Activity
 					} else {lay1.setVisibility(View.GONE);}
 					if(opts[p3].toString().startsWith("Selecione")){
 						im1.setVisibility(View.GONE);
-						som1.setEms(7);
+						som1.setEms(9);
 					}
 					if(opts[p3].toString().startsWith("Elo Débito")){
 						im1.setVisibility(View.VISIBLE);
@@ -776,8 +948,9 @@ public class pay extends Activity
 				public void onItemSelected(AdapterView<?> p1, View p2, int p3, long p4)
 				{
 					// TODO: Implement this method
+					opts2 = p3;
 					if(opts[p3].toString().startsWith("Dinheiro")){
-						lay1.setVisibility(View.VISIBLE);
+						lay2.setVisibility(View.VISIBLE);
 						try{
 							db = new DB(c);
 							List<util> rd;
@@ -803,10 +976,10 @@ public class pay extends Activity
 							DB d1 = new DB(c);
 							d1.moneyIn(us);
 						}
-					} else {lay1.setVisibility(View.GONE);}
+					} else {lay2.setVisibility(View.GONE);}
 					if(opts[p3].toString().startsWith("Selecione")){
 						im2.setVisibility(View.GONE);
-						som2.setEms(7);
+						som2.setEms(9);
 					}
 					if(opts[p3].toString().startsWith("Elo Débito")){
 						im2.setVisibility(View.VISIBLE);
@@ -1416,8 +1589,9 @@ public class pay extends Activity
 				public void onItemSelected(AdapterView<?> p1, View p2, int p3, long p4)
 				{
 					// TODO: Implement this method
+					opts3 = p3;
 					if(opts[p3].toString().startsWith("Dinheiro")){
-						lay1.setVisibility(View.VISIBLE);
+						lay3.setVisibility(View.VISIBLE);
 						try{
 							db = new DB(c);
 							List<util> rd;
@@ -1443,10 +1617,10 @@ public class pay extends Activity
 							DB d1 = new DB(c);
 							d1.moneyIn(us);
 						}
-					} else {lay1.setVisibility(View.GONE);}
+					} else {lay3.setVisibility(View.GONE);}
 					if(opts[p3].toString().startsWith("Selecione")){
 						im3.setVisibility(View.GONE);
-						som3.setEms(7);
+						som3.setEms(9);
 					}
 					if(opts[p3].toString().startsWith("Elo Débito")){
 						im3.setVisibility(View.VISIBLE);
@@ -2056,8 +2230,9 @@ public class pay extends Activity
 				public void onItemSelected(AdapterView<?> p1, View p2, int p3, long p4)
 				{
 					// TODO: Implement this method
+					opts4 = p3;
 					if(opts[p3].toString().startsWith("Dinheiro")){
-						lay1.setVisibility(View.VISIBLE);
+						lay4.setVisibility(View.VISIBLE);
 						try{
 							db = new DB(c);
 							List<util> rd;
@@ -2083,10 +2258,10 @@ public class pay extends Activity
 							DB d1 = new DB(c);
 							d1.moneyIn(us);
 						}
-					} else {lay1.setVisibility(View.GONE);}
+					} else {lay4.setVisibility(View.GONE);}
 					if(opts[p3].toString().startsWith("Selecione")){
 						im4.setVisibility(View.GONE);
-						som4.setEms(7);
+						som4.setEms(9);
 					}
 					if(opts[p3].toString().startsWith("Elo Débito")){
 						im4.setVisibility(View.VISIBLE);
@@ -2696,8 +2871,9 @@ public class pay extends Activity
 				public void onItemSelected(AdapterView<?> p1, View p2, int p3, long p4)
 				{
 					// TODO: Implement this method
+					opts5 = p3;
 					if(opts[p3].toString().startsWith("Dinheiro")){
-						lay1.setVisibility(View.VISIBLE);
+						lay5.setVisibility(View.VISIBLE);
 						try{
 							db = new DB(c);
 							List<util> rd;
@@ -2723,10 +2899,10 @@ public class pay extends Activity
 							DB d1 = new DB(c);
 							d1.moneyIn(us);
 						}
-					} else {lay1.setVisibility(View.GONE);}
+					} else {lay5.setVisibility(View.GONE);}
 					if(opts[p3].toString().startsWith("Selecione")){
 						im5.setVisibility(View.GONE);
-						som5.setEms(7);
+						som5.setEms(9);
 					}
 					if(opts[p3].toString().startsWith("Elo Débito")){
 						im5.setVisibility(View.VISIBLE);

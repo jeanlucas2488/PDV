@@ -7,14 +7,14 @@ public class Core extends SQLiteOpenHelper
 	public static String name = "myDB.db";
 	
 	public Core(Context c){
-		super(c, name, null, 2);
+		super(c, name, null, 3);
 	}
 	@Override
 	public void onCreate(SQLiteDatabase db)
 	{
 		// TODO: Implement this method
 		db.execSQL("CREATE TABLE produtos " +
-		           "(id integer primary key autoincrement, loc TEXT, prod TEXT, quant TEXT, valor TEXT, payType TEXT, troco TEXT);");
+		           "(id integer primary key autoincrement, loc TEXT, prod TEXT, quant TEXT, valor TEXT, payType TEXT, pagto TEXT, troco TEXT);");
 		db.execSQL("CREATE TABLE dinheiro (id integer primary key autoincrement, money TEXT);");
 		db.execSQL("CREATE TABLE operador (id integer primary key autoincrement, operador TEXT);");
 		db.execSQL("CREATE TABLE fundo (id integer primary key autoincrement, fundo TEXT);");

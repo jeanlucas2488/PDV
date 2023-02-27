@@ -69,6 +69,17 @@ public class DB
 	public void delAmeric(){
 		db.execSQL("delete from americ");
 	}
+	public void prodIn(util us){
+		ContentValues ct = new ContentValues();
+		ct.put("loc", us.getLoc());
+		ct.put("prod", us.getProd1());
+		ct.put("quant", us.getQuant1());
+		ct.put("valor", us.getValor1());
+		ct.put("payType", us.getPay1());
+		ct.put("pagto", us.getP1());
+		ct.put("troco", us.getT1());
+		db.insert("produtos", null, ct);
+	}
 	public void moneyIn(util us){
 		ContentValues ct = new ContentValues();
 		ct.put("money", us.getMoney());
