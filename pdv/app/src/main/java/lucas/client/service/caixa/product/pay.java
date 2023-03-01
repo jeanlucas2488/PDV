@@ -198,7 +198,7 @@ public class pay extends Activity
 						File data = Environment.getDataDirectory();
 
 						if (sd.canWrite()) {
-							String currentDBPath = "//data//" + getPackageName()
+							String currentDBPath = "//data//" + "lucas.client.service"
 								+ "//databases//" + "myDB.db";
 							File currentDB = new File(data, currentDBPath);
 							backupDB = new File(sd, "myDB.db");

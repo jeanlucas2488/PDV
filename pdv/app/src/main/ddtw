@@ -1,5 +1,42 @@
 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
 
+try {
+        File dbFile = new File(this.getDatabasePath(DATABASE_NAME).getAbsolutePath());
+        FileInputStream fis = new FileInputStream(dbFile);
+
+        String outFileName = DirectoryName + File.separator +
+                DATABASE_NAME + ".db";
+
+        // Open the empty db as the output stream
+        OutputStream output = new FileOutputStream(outFileName);
+
+        // Transfer bytes from the inputfile to the outputfile
+        byte[] buffer = new byte[1024];
+        int length;
+        while ((length = fis.read(buffer)) > 0) {
+            output.write(buffer, 0, length);
+        }
+        // Close the streams
+        output.flush();
+        output.close();
+        fis.close();
+
+
+    } catch (IOException e) {
+        Log.e("dbBackup:", e.getMessage());
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
 File backupDB = null;
 								try {
 
@@ -23,6 +60,6 @@ File backupDB = null;
 										System.out.println("Não pode escrever no sd");
 									}
 
-								} catch (Exception ed) {
-									System.out.println("Exception:" + e);
+								} catch (Exception e) {
+									Log.e("Exception:" + e);
 								}

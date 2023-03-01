@@ -3,14 +3,18 @@ package lucas.client.service.caixa;
 import android.app.*;
 import android.content.*;
 import android.os.*;
+import android.util.*;
 import android.view.*;
 import android.widget.*;
 import android.widget.AdapterView.*;
+import java.io.*;
+import java.nio.channels.*;
 import java.util.*;
 import lucas.client.service.*;
 import lucas.client.service.caixa.adapters.*;
 import lucas.client.service.caixa.product.*;
 import lucas.client.service.sqlite.*;
+import lucas.client.service.etc.*;
 
 public class caixaMain extends Activity
 {
@@ -22,7 +26,6 @@ Context c = this;
 		// TODO: Implement this method
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-		
 		lt.add("Acessórios");
 		lt.add("Gamer");
 		lt.add("Cliente");
@@ -123,13 +126,24 @@ Context c = this;
 						break;
 						
 					case 3:
-							String[] lc = new String[] 
+							final String[] lc = new String[] 
 							{"Histórico de vendas", "Controle Estoque", "Fechamento de Caixa", "Sangria"};
 
 							LayoutInflater li = getLayoutInflater();
 							View r = li.inflate(R.layout.list_ad, null);
 							ListView lis = r.findViewById(R.id.list);
 							lis.setAdapter(new mainAd(c, lc));
+							lis.setOnItemClickListener(new OnItemClickListener(){
+
+									@Override
+									public void onItemClick(AdapterView<?> p1, View p2, int p3, long p4)
+									{
+										// TODO: Implement this method
+										if(lc[p3].toString().startsWith("F")){
+											
+										}
+									}			
+							});
 							AlertDialog.Builder selc = new AlertDialog.Builder(c);
 							selc.setView(r);
 							selc.create();

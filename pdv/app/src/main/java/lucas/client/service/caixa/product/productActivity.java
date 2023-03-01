@@ -1,13 +1,17 @@
 package lucas.client.service.caixa.product;
 import android.app.*;
-import android.widget.*;
-import android.os.*;
-import lucas.client.service.*;
-import android.view.*;
 import android.content.*;
+import android.os.*;
+import android.view.*;
+import android.widget.*;
+import android.widget.AdapterView.*;
+import java.util.*;
+import lucas.client.service.*;
+import android.widget.TextView.*;
 
 public class productActivity extends Activity
 {
+	AlertDialog bs, bs2;
 	Context c = this;
 	EditText cod1, prod1, quant1, valor1, cod2, prod2, quant2, valor2,
 	         cod3, prod3, quant3, valor3, cod4, prod4, quant4, valor4,
@@ -61,6 +65,71 @@ public class productActivity extends Activity
 		prod1.setText(prod.toString());
 		quant1.setText(quan.toString());
 		valor1.setText(va.toString());
+		quant5.setOnEditorActionListener(new OnEditorActionListener(){
+
+				@Override
+				public boolean onEditorAction(TextView p5, int p2, KeyEvent p3)
+				{
+					// TODO: Implement this method
+					Double q = new Double(quant5.getText().toString());
+					Double qt = new Double(valor5.getText().toString());
+					double res = qt * q;
+					valor5.setText(String.valueOf(res));
+					return false;
+				}
+			});
+		quant4.setOnEditorActionListener(new OnEditorActionListener(){
+
+				@Override
+				public boolean onEditorAction(TextView p4, int p2, KeyEvent p3)
+				{
+					// TODO: Implement this method
+					Double q = new Double(quant4.getText().toString());
+					Double qt = new Double(valor4.getText().toString());
+					double res = qt * q;
+					valor4.setText(String.valueOf(res));
+					return false;
+				}
+			});
+		quant3.setOnEditorActionListener(new OnEditorActionListener(){
+
+				@Override
+				public boolean onEditorAction(TextView p1, int p2, KeyEvent p3)
+				{
+					// TODO: Implement this method
+					Double q = new Double(quant3.getText().toString());
+					Double qt = new Double(valor3.getText().toString());
+					double res = qt * q;
+					valor3.setText(String.valueOf(res));
+					return false;
+				}
+			});
+		quant2.setOnEditorActionListener(new OnEditorActionListener(){
+
+				@Override
+				public boolean onEditorAction(TextView p1, int p2, KeyEvent p3)
+				{
+					// TODO: Implement this method
+					Double q = new Double(quant2.getText().toString());
+					Double qt = new Double(valor2.getText().toString());
+					double res = qt * q;
+					valor2.setText(String.valueOf(res));
+					return false;
+				}
+			});
+		quant1.setOnEditorActionListener(new OnEditorActionListener(){
+
+				@Override
+				public boolean onEditorAction(TextView p1, int p2, KeyEvent p3)
+				{
+					// TODO: Implement this method
+					Double q = new Double(quant1.getText().toString());
+					Double qt = new Double(valor1.getText().toString());
+					double res = qt * q;
+					valor1.setText(String.valueOf(res));
+					return false;
+				}
+		});
 		if(!cod2.getText().toString().equals("")){
 			
 		}else{
@@ -97,6 +166,97 @@ public class productActivity extends Activity
 		// TODO: Implement this method
 		switch(item.getItemId()){
 			case R.id.add:
+				String[] l = {"Acessórios P/ Notebook", "Acessórios P/Computador"};
+				AlertDialog.Builder sel = new AlertDialog.Builder(c);
+				sel.setItems(l, new DialogInterface.OnClickListener(){
+
+						@Override
+						public void onClick(DialogInterface p1, int p2)
+						{
+							// TODO: Implement this method
+							switch(p2){
+								case 0:
+									LayoutInflater li = getLayoutInflater();
+									View r = li.inflate(R.layout.ace_list, null);
+									ListView ls = r.findViewById(R.id.acelist);
+									SearchView sc = r.findViewById(R.id.searchView);
+									final ArrayList<String>list = new ArrayList<String>();
+
+									list.add("Mouse USB");
+									list.add("Teclado USB Multilaser");
+									final ArrayAdapter adapter = new ArrayAdapter<>(c, android.R.layout.simple_list_item_1, list);
+									ls.setAdapter(adapter);
+									ls.setOnItemClickListener(new OnItemClickListener(){
+
+											@Override
+											public void onItemClick(AdapterView<?> p1, View p2, int p3, long p4)
+											{
+												// TODO: Implement this method
+												Object sub = list.get(p3);
+												if(sub.toString().startsWith("Teclado USB Multilaser")){
+													bs.dismiss();
+													if(!cod4.getText().toString().equals("")){
+														layp5.setVisibility(View.VISIBLE);
+														cod5.setText("0233");
+														prod5.setText(sub.toString());
+														quant5.setText("1");
+														valor5.setText("32.90");
+													} else {
+
+													}
+													if(!cod3.getText().toString().equals("")){
+														layp4.setVisibility(View.VISIBLE);
+														cod4.setText("0233");
+														prod4.setText(sub.toString());
+														quant4.setText("1");
+														valor4.setText("32.90");
+													} else {
+														
+													}
+													if(!cod2.getText().toString().equals("")){
+														layp3.setVisibility(View.VISIBLE);
+														cod3.setText("0233");
+														prod3.setText(sub.toString());
+														quant3.setText("1");
+														valor3.setText("32.90");
+													
+													}else {
+														layp2.setVisibility(View.VISIBLE);
+														cod2.setText("0233");
+														prod2.setText(sub.toString());
+														quant2.setText("1");
+														valor2.setText("32.90");
+													}
+												}
+											}
+
+										});
+									sc.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+											@Override
+											public boolean onQueryTextSubmit(String s) {
+												return false;
+											}
+
+											@Override
+											public boolean onQueryTextChange(String s) {
+
+												adapter.getFilter().filter(s);
+
+												return false;
+											}
+										});
+									AlertDialog.Builder ace = new AlertDialog.Builder(c);
+									ace.setView(r);
+									ace.create();
+									bs = ace.show();
+									break;
+								case 1:
+									break;
+							}
+						}
+					});
+				sel.create();
+				bs2 = sel.show();
 				return true;
 			case R.id.finalizar:
 				String result2, result3, result4, result5;
