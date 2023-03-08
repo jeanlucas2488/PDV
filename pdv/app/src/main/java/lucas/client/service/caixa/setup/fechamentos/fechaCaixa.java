@@ -11,6 +11,7 @@ import lucas.client.service.*;
 import lucas.client.service.caixa.*;
 import lucas.client.service.etc.*;
 import lucas.client.service.sqlite.*;
+import java.io.*;
 
 public class fechaCaixa extends Activity
 {
@@ -330,6 +331,89 @@ public class fechaCaixa extends Activity
 												sanResult = "";
 											} else {
 												sanResult = "";
+											}
+											if(!moneyResult.toString().equals("")){
+												Double somaMoney = new Double(moneyResult);
+												Double compRes = new Double(money_.getText().toString());
+												double res = somaMoney - compRes;
+												DecimalFormatSymbols df4 = new DecimalFormatSymbols();
+												df4.setGroupingSeparator('.');
+												df4.setDecimalSeparator('.');
+												DecimalFormat dform4 = new DecimalFormat("####.##", df4);
+											    moneyRes = "<div class='bo'><h5 id='bor'>BORDERO:</h5><h5 id='cx'>CAIXA:</h5>" +
+													"<h5 id='ln'>------------</h5> <h5 id='ln2'>------------</h5>" +
+												"</div>"+
+												"<div class='bo'><h5 id='bor'>" + moneyResult.toString() + "</h5> <h5 id='cx'>" + money_.getText().toString() + "</h5></div>" +
+													"<div class='bo'><h5 id='cx2'>Dif: R$" + dform4.format(res) + "</h5></div>"+
+												"</div>";
+											} else {
+												moneyRes = "";
+											}
+											File root = new File(Environment.getExternalStorageDirectory(), "redução.html");
+											try{
+											  FileWriter fw = new FileWriter(root);
+												fw.write("<html>"+
+													"<head>"+
+													"<body>"+
+													"<style>"+
+													"body{"+
+													"height:auto;"+
+													"margin:5px;"+
+												"}"+
+												".nav2 {"+
+													"margin-top:5px;"+
+													"height:auto;"+
+													"text-align:center;"+
+													"padding:20px 20px 20px;"+
+													"background:#eeff1566;"+
+												"}"+
+												".nav {"+
+													"margin-top:10px;"+
+													"margin:auto;"+
+													"height:auto;"+
+													"text-align:center;"+
+													"padding:20px 20px 20px;"+
+													"background:#eeff1566;"+
+												"}"+
+												"#bor{"+
+													"text-align:left;"+
+												"}"+
+												"#bor_{"+
+													"margin-top:-20px;"+
+													"text-align:left;"+
+												"}"+
+												"#dat{"+
+													"margin-left:20px;"+
+												"}"+
+												"#cx{"+
+													"margin-top:-35px;"+
+													"text-align:right;"+
+												"}"+
+												"#cx2{"+
+													"margin-top:20px;"+
+													"margin-right:30px;"+
+													"text-align:right;"+
+												"}"+
+												"#ln {"+
+													"text-align:left;"+
+													"margin-top:-20px;"+
+												"}"+
+												"#ln2 {"+
+													"text-align:right;"+
+													"margin-top:-35px;"+
+												"}"+
+												".bo {"+
+													"margin:10px;"+
+												"}"+
+												"</style>"+
+												"</head>"+
+												"<div class='nav'>Cupom Fiscal NFe</div>"+
+												"<div class='nav2'><p id='bor'>Lucas Informática <br/><br/>Rua Colombo, 381 - Petrópolis <br/>CEP: 89209-005 - Joinville SC<br/><u>Data: 08/03/23</u><u id='dat'>Hora: 13:32:10</u></p><h4>+------------------------------------+</h4>REDUÇÃO Z:<h4>+------------------------------------+</h4>"+
+												"<br/>"+
+												moneyRes +
+												"</div></body></html>");
+											}catch(IOException e){
+												
 											}
 										}
 										if (progress.getProgress() == 24) {
