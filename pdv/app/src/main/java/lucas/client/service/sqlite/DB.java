@@ -80,6 +80,11 @@ public class DB
 		ct.put("troco", us.getT1());
 		db.insert("produtos", null, ct);
 	}
+	public void saIn(util us){
+		ContentValues ct = new ContentValues();
+		ct.put("sangria", us.getSangria());
+		db.insert("saldo", null, ct);
+	}
 	public void opIn(util us){
 		ContentValues ct = new ContentValues();
 		ct.put("operador", us.getOp());
@@ -185,6 +190,20 @@ public class DB
 		ContentValues ct = new ContentValues();
 		ct.put("americ", us.getAmeric());
 		db.insert("americ", null, ct);
+	}
+	public List<util> saFind(){
+		ArrayList<util> arr = new ArrayList<util>();
+		String[] cl = {"id", "sangria"};
+		Cursor cs = db.query("saldo", cl, null, null, null, null, "sangria ASC");
+		if(cs.getCount() >0){
+			cs.moveToFirst();
+			do{
+				util us = new util();
+				us.setSangria(cs.getString(1));
+				arr.add(us);
+			}while(cs.moveToNext());
+		}
+		return arr;
 	}
 	public void sanFind(long id){
 		Cursor cs = db.rawQuery("select * from sangria WHERE id="+id+"", null);

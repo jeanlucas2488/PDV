@@ -1,6 +1,7 @@
 package lucas.client.service.caixa.setup.fechamentos;
 import android.app.*;
 import android.content.*;
+import android.icu.text.*;
 import android.os.*;
 import android.view.*;
 import android.view.View.*;
@@ -78,14 +79,12 @@ public class fechaCaixa extends Activity
 		
 		try{
 			DB db = new DB(c);
-			
-			/*if(.equals("")){
-				americid.setVisibility(View.VISIBLE);
-			    americResult = americ.get(0).getAmeric();
-			} */
+			sangria = db.saFind();
+			if(sangria.get(0).getSangria().equals("")){
+			    sangRes = sangria.get(0).getSangria();
+			} 
 		}catch(Exception e){
-			americid.setVisibility(View.GONE);
-			americResult = "";
+			sangRes = "";
 		}
 		try{
 			DB db = new DB(c);
@@ -320,7 +319,18 @@ public class fechaCaixa extends Activity
 											progress.setMessage("Gerando NFe da Redução Z...");
 											String sanResult, moneyRes, eloDRes, eloCRes, visaDRes, visaCRes, masterDRes, masterCRes, hiperRes, hiperCRes, 
 												verdeRes, soroRes, personRes, ouroRes, banriRes, banricRes, banesRes, americRes;
-											
+											if(!sangRes.toString().equals("")){
+												Double somaSan = new Double(sangRes);
+												Double compRes = new Double(sangria_.getText().toString());
+												double res = somaSan - compRes;
+												DecimalFormatSymbols df4 = new DecimalFormatSymbols();
+												df4.setGroupingSeparator('.');
+												df4.setDecimalSeparator('.');
+												DecimalFormat dform4 = new DecimalFormat("####.##", df4);
+												sanResult = "";
+											} else {
+												sanResult = "";
+											}
 										}
 										if (progress.getProgress() == 24) {
 											progress.setMessage("Escrevendo NFe da Redução Z no Sistema...");
