@@ -27,6 +27,7 @@
 			android:hint="Operador"
 			android:layout_marginLeft="10dp"
 			android:layout_marginRight="10dp"/>
+
 		<EditText
 			android:id="@+id/fundo"
 			android:layout_width="wrap_content"
@@ -35,7 +36,7 @@
 			android:hint="Fundo..."
 			android:layout_marginLeft="10dp"
 			android:layout_marginRight="10dp"/>
-		
+
 		<EditText
 			android:id="@+id/sangria"
 			android:layout_width="wrap_content"
@@ -94,10 +95,12 @@
 			android:layout_marginTop="10dp"
 			android:layout_marginLeft="10dp"
 			android:layout_marginRight="10dp">
+
 			<ImageView
 				android:src="@drawable/elo"
 				android:layout_width="57dp"
-				android:layout_height="60dp" />
+				android:layout_height="60dp"/>
+
 			<EditText
 				android:id="@+id/eloD"
 				android:layout_width="wrap_content"
@@ -106,6 +109,7 @@
 				android:hint="Elo Débito"/>
 
 		</LinearLayout>
+
 		<LinearLayout
 			android:id="@+id/eloC_ID"
 			android:orientation="horizontal"
@@ -114,10 +118,12 @@
 			android:layout_marginTop="5dp"
 			android:layout_marginLeft="10dp"
 			android:layout_marginRight="10dp">
+
 			<ImageView
 				android:src="@drawable/elo"
 				android:layout_width="57dp"
-				android:layout_height="60dp" />
+				android:layout_height="60dp"/>
+
 			<EditText
 				android:id="@+id/eloC"
 				android:layout_width="wrap_content"
@@ -126,6 +132,7 @@
 				android:hint="Elo Crédito"/>
 
 		</LinearLayout>
+
 		<LinearLayout
 			android:id="@+id/visaD_ID"
 			android:orientation="horizontal"
@@ -134,10 +141,12 @@
 			android:layout_marginTop="5dp"
 			android:layout_marginLeft="10dp"
 			android:layout_marginRight="10dp">
+
 			<ImageView
 				android:src="@drawable/visa"
 				android:layout_width="57dp"
-				android:layout_height="60dp" />
+				android:layout_height="60dp"/>
+
 			<EditText
 				android:id="@+id/visaD"
 				android:layout_width="wrap_content"
@@ -146,6 +155,7 @@
 				android:hint="Visa Débito"/>
 
 		</LinearLayout>
+
 		<LinearLayout
 			android:id="@+id/visaC_ID"
 			android:orientation="horizontal"
@@ -154,10 +164,12 @@
 			android:layout_marginTop="5dp"
 			android:layout_marginLeft="10dp"
 			android:layout_marginRight="10dp">
+
 			<ImageView
 				android:src="@drawable/visa"
 				android:layout_width="57dp"
-				android:layout_height="60dp" />
+				android:layout_height="60dp"/>
+
 			<EditText
 				android:id="@+id/visaC"
 				android:layout_width="wrap_content"
@@ -166,6 +178,7 @@
 				android:hint="Visa Crédito"/>
 
 		</LinearLayout>
+
 		<LinearLayout
 			android:id="@+id/masterD_ID"
 			android:orientation="horizontal"
@@ -174,10 +187,12 @@
 			android:layout_marginTop="5dp"
 			android:layout_marginLeft="10dp"
 			android:layout_marginRight="10dp">
+
 			<ImageView
 				android:src="@drawable/master"
 				android:layout_width="57dp"
-				android:layout_height="60dp" />
+				android:layout_height="60dp"/>
+
 			<EditText
 				android:id="@+id/masterD"
 				android:layout_width="wrap_content"
@@ -186,6 +201,7 @@
 				android:hint="Master Débito"/>
 
 		</LinearLayout>
+
 		<LinearLayout
 			android:id="@+id/masterC_ID"
 			android:orientation="horizontal"
@@ -194,10 +210,12 @@
 			android:layout_marginTop="5dp"
 			android:layout_marginLeft="10dp"
 			android:layout_marginRight="10dp">
+
 			<ImageView
 				android:src="@drawable/master"
 				android:layout_width="57dp"
-				android:layout_height="60dp" />
+				android:layout_height="60dp"/>
+
 			<EditText
 				android:id="@+id/masterC"
 				android:layout_width="wrap_content"
@@ -206,6 +224,7 @@
 				android:hint="Master Crédito"/>
 
 		</LinearLayout>
+
 		<LinearLayout
 			android:id="@+id/hiper_ID"
 			android:orientation="horizontal"
@@ -214,10 +233,12 @@
 			android:layout_marginTop="5dp"
 			android:layout_marginLeft="20dp"
 			android:layout_marginRight="10dp">
+
 			<ImageView
 				android:src="@drawable/hiper"
 				android:layout_width="40dp"
-				android:layout_height="40dp" />
+				android:layout_height="40dp"/>
+
 			<EditText
 				android:id="@+id/hiper"
 				android:layout_width="wrap_content"
@@ -226,6 +247,7 @@
 				android:hint="Hiper"/>
 
 		</LinearLayout>
+
 		<LinearLayout
 			android:id="@+id/hiperC_ID"
 			android:orientation="horizontal"
@@ -234,10 +256,12 @@
 			android:layout_marginTop="5dp"
 			android:layout_marginLeft="15dp"
 			android:layout_marginRight="10dp">
+
 			<ImageView
 				android:src="@drawable/hiperc"
 				android:layout_width="45dp"
-				android:layout_height="50dp" />
+				android:layout_height="50dp"/>
+
 			<EditText
 				android:id="@+id/hiperc"
 				android:layout_width="wrap_content"
@@ -246,6 +270,7 @@
 				android:hint="Hiper Card"/>
 
 		</LinearLayout>
+
 		<LinearLayout
 			android:id="@+id/cabal_ID"
 			android:orientation="horizontal"
@@ -254,10 +279,12 @@
 			android:layout_marginTop="5dp"
 			android:layout_marginLeft="20dp"
 			android:layout_marginRight="10dp">
+
 			<ImageView
 				android:src="@drawable/cabal"
 				android:layout_width="40dp"
-				android:layout_height="40dp" />
+				android:layout_height="40dp"/>
+
 			<EditText
 				android:id="@+id/cabal"
 				android:layout_width="wrap_content"
@@ -266,6 +293,7 @@
 				android:hint="Cabal"/>
 
 		</LinearLayout>
+
 		<LinearLayout
 			android:id="@+id/pix_ID"
 			android:orientation="horizontal"
@@ -274,10 +302,12 @@
 			android:layout_marginTop="5dp"
 			android:layout_marginLeft="20dp"
 			android:layout_marginRight="10dp">
+
 			<ImageView
 				android:src="@drawable/pix"
 				android:layout_width="40dp"
-				android:layout_height="40dp" />
+				android:layout_height="40dp"/>
+
 			<EditText
 				android:id="@+id/pix"
 				android:layout_width="wrap_content"
@@ -286,6 +316,7 @@
 				android:hint="Pix"/>
 
 		</LinearLayout>
+
 		<LinearLayout
 			android:id="@+id/verde_ID"
 			android:orientation="horizontal"
@@ -294,10 +325,12 @@
 			android:layout_marginTop="5dp"
 			android:layout_marginLeft="20dp"
 			android:layout_marginRight="10dp">
+
 			<ImageView
 				android:src="@drawable/verde"
 				android:layout_width="40dp"
-				android:layout_height="40dp" />
+				android:layout_height="40dp"/>
+
 			<EditText
 				android:id="@+id/verde"
 				android:layout_width="wrap_content"
@@ -306,6 +339,7 @@
 				android:hint="Verde Card"/>
 
 		</LinearLayout>
+
 		<LinearLayout
 			android:id="@+id/soro_ID"
 			android:orientation="horizontal"
@@ -314,10 +348,12 @@
 			android:layout_marginTop="5dp"
 			android:layout_marginLeft="20dp"
 			android:layout_marginRight="10dp">
+
 			<ImageView
 				android:src="@drawable/soro"
 				android:layout_width="40dp"
-				android:layout_height="40dp" />
+				android:layout_height="40dp"/>
+
 			<EditText
 				android:id="@+id/soro"
 				android:layout_width="wrap_content"
@@ -326,6 +362,7 @@
 				android:hint="Soro Cred"/>
 
 		</LinearLayout>
+
 		<LinearLayout
 			android:id="@+id/person_ID"
 			android:orientation="horizontal"
@@ -334,10 +371,12 @@
 			android:layout_marginTop="5dp"
 			android:layout_marginLeft="20dp"
 			android:layout_marginRight="10dp">
+
 			<ImageView
 				android:src="@drawable/person"
 				android:layout_width="40dp"
-				android:layout_height="50dp" />
+				android:layout_height="50dp"/>
+
 			<EditText
 				android:id="@+id/person"
 				android:layout_width="wrap_content"
@@ -346,6 +385,7 @@
 				android:hint="Personal Card"/>
 
 		</LinearLayout>
+
 		<LinearLayout
 			android:id="@+id/ouro_ID"
 			android:orientation="horizontal"
@@ -354,10 +394,12 @@
 			android:layout_marginTop="5dp"
 			android:layout_marginLeft="20dp"
 			android:layout_marginRight="10dp">
+
 			<ImageView
 				android:src="@drawable/ouro"
 				android:layout_width="40dp"
-				android:layout_height="40dp" />
+				android:layout_height="40dp"/>
+
 			<EditText
 				android:id="@+id/ouro"
 				android:layout_width="wrap_content"
@@ -366,6 +408,7 @@
 				android:hint="Ouro Card"/>
 
 		</LinearLayout>
+
 		<LinearLayout
 			android:id="@+id/banric_ID"
 			android:orientation="horizontal"
@@ -374,10 +417,12 @@
 			android:layout_marginTop="5dp"
 			android:layout_marginLeft="20dp"
 			android:layout_marginRight="10dp">
+
 			<ImageView
 				android:src="@drawable/banric"
 				android:layout_width="40dp"
-				android:layout_height="40dp" />
+				android:layout_height="40dp"/>
+
 			<EditText
 				android:id="@+id/banrisul"
 				android:layout_width="wrap_content"
@@ -386,6 +431,7 @@
 				android:hint="BanriSul"/>
 
 		</LinearLayout>
+
 		<LinearLayout
 			android:id="@+id/banrico_ID"
 			android:orientation="horizontal"
@@ -394,10 +440,12 @@
 			android:layout_marginTop="5dp"
 			android:layout_marginLeft="20dp"
 			android:layout_marginRight="10dp">
+
 			<ImageView
 				android:src="@drawable/banrico"
 				android:layout_width="40dp"
-				android:layout_height="40dp" />
+				android:layout_height="40dp"/>
+
 			<EditText
 				android:id="@+id/banrico"
 				android:layout_width="wrap_content"
@@ -406,6 +454,7 @@
 				android:hint="BanriCompras"/>
 
 		</LinearLayout>
+
 		<LinearLayout
 			android:id="@+id/banes_ID"
 			android:orientation="horizontal"
@@ -414,10 +463,12 @@
 			android:layout_marginTop="5dp"
 			android:layout_marginLeft="20dp"
 			android:layout_marginRight="10dp">
+
 			<ImageView
 				android:src="@drawable/banes"
 				android:layout_width="50dp"
-				android:layout_height="40dp" />
+				android:layout_height="40dp"/>
+
 			<EditText
 				android:id="@+id/banes"
 				android:layout_width="wrap_content"
@@ -426,6 +477,7 @@
 				android:hint="BanesCard"/>
 
 		</LinearLayout>
+
 		<LinearLayout
 			android:id="@+id/americ_ID"
 			android:orientation="horizontal"
@@ -434,10 +486,12 @@
 			android:layout_marginTop="5dp"
 			android:layout_marginLeft="20dp"
 			android:layout_marginRight="10dp">
+
 			<ImageView
 				android:src="@drawable/americ"
 				android:layout_width="50dp"
-				android:layout_height="50dp" />
+				android:layout_height="50dp"/>
+
 			<EditText
 				android:id="@+id/americ"
 				android:layout_width="wrap_content"
@@ -446,6 +500,27 @@
 				android:hint="American Express"/>
 
 		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+
+			<Button
+				android:id="@+id/canc"
+				android:layout_width="wrap_content"
+				style="?android:attr/buttonBarButtonStyle"
+				android:layout_height="wrap_content"
+				android:text="Cancelar"/>
+
+			<Button
+				android:id="@+id/fecha"
+				android:layout_width="wrap_content"
+				style="?android:attr/buttonBarButtonStyle"
+				android:layout_height="wrap_content"
+				android:text="Fechar Caixa"/>
+
+		</LinearLayout>
+
 	</LinearLayout>
 
 </ScrollView>

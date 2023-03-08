@@ -2,6 +2,7 @@ package lucas.client.service.etc;
 
 public class util
 {
+	public String sangria_val, sangria_mot, op;
 	public String loc;
 	public String money;
 	public String prod;
@@ -31,6 +32,7 @@ public class util
 	public String payType4;
 	public String troco4;
 	
+	public long id;
 	public String loc5;
 	public String prod5;
 	public String quant5;
@@ -57,6 +59,30 @@ public class util
 	public String banes;
 	public String americ;
 
+	public long id(){
+		return id;
+	}
+	public void setSanId(long id){
+		this.id = id;
+	}
+	public String getOp(){
+		return op;
+	}
+	public void setOp(String op){
+		this.op = op;
+	}
+	public String getSanMot(){
+		return sangria_mot;
+	}
+	public void setSanMot(String mot){
+		this.sangria_mot = mot;
+	}
+	public String getSanVal(){
+		return sangria_val;
+	}
+	public void setSanVal(String val){
+		this.sangria_val = val;
+	}
 	public String getP5(){
 		return pagto5;
 	}

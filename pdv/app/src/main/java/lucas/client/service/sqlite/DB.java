@@ -80,6 +80,17 @@ public class DB
 		ct.put("troco", us.getT1());
 		db.insert("produtos", null, ct);
 	}
+	public void opIn(util us){
+		ContentValues ct = new ContentValues();
+		ct.put("operador", us.getOp());
+		db.insert("operador", null, ct);
+	}
+	public void sangIn(util us){
+		ContentValues ct = new ContentValues();
+		ct.put("valor", us.getSanVal());
+		ct.put("motivo", us.getSanMot());
+		db.insert("sangria", null, ct);
+	}
 	public void moneyIn(util us){
 		ContentValues ct = new ContentValues();
 		ct.put("money", us.getMoney());
@@ -174,6 +185,32 @@ public class DB
 		ContentValues ct = new ContentValues();
 		ct.put("americ", us.getAmeric());
 		db.insert("americ", null, ct);
+	}
+	public void sanFind(long id){
+		Cursor cs = db.rawQuery("select * from sangria WHERE id="+id+"", null);
+		if(cs.moveToFirst()){
+			
+			do{
+				util us = new util();
+				us.setSanId(cs.getLong(cs.getColumnIndex("id")));
+				us.setSanVal(cs.getString(cs.getColumnIndex("valor")));
+				us.setSanMot(cs.getString(cs.getColumnIndex("motivo")));
+			}while(cs.moveToNext());
+		}
+	}
+	public List<util> opFind(){
+		ArrayList<util> arr = new ArrayList<util>();
+		String[] cl = {"id", "operador"};
+		Cursor cs = db.query("operador", cl, null, null, null, null, "operador ASC");
+		if(cs.getCount() >0){
+			cs.moveToFirst();
+			do{
+				util us = new util();
+				us.setOp(cs.getString(1));
+				arr.add(us);
+			}while(cs.moveToNext());
+		}
+		return arr;
 	}
 	public List<util> ameFind(){
 		ArrayList<util> arr = new ArrayList<util>();
