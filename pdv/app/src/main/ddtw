@@ -28,6 +28,30 @@ try {
 }
 
 
+"<div>"+
+													"<center>"+
+													"<div class='san'><b>Sangria de Caixa:</b></div>"+
+													"<table>"+
+													"<tr>"+
+													"<th id='mot'>Motivo</th><th id='val'>Valor</th>"+
+													
+													"<tr>"+
+													"<td id='clS'>Soma:</td> <td id='clL'>Lançado:</td>"+
+													"</tr>"+
+													"<tr>"+
+													"<td id='clso'>R$0.00</td> <td id='clu'>R$0.00</td>"+
+													"</tr>"+
+													"<tr>"+
+													"<td></td><td id='clVal'>Diferença:</td>"+
+													"</tr>"+
+											"<tr>"+
+												"<td></td><td id='clVal'>R$0.00</td>"+
+											"</tr>"+
+											"</tr>"+
+												"</table>"+
+												"</center>"+
+												"</div>";
+
 
 
 

@@ -328,10 +328,12 @@ public class fechaCaixa extends Activity
 												df4.setGroupingSeparator('.');
 												df4.setDecimalSeparator('.');
 												DecimalFormat dform4 = new DecimalFormat("####.##", df4);
-												sanResult = "";
+												sanResult = dform4.format(res);
 											} else {
 												sanResult = "";
 											}
+											DB db = new DB(c);
+											
 											if(!moneyResult.toString().equals("")){
 												Double somaMoney = new Double(moneyResult);
 												Double compRes = new Double(money_.getText().toString());
@@ -340,11 +342,11 @@ public class fechaCaixa extends Activity
 												df4.setGroupingSeparator('.');
 												df4.setDecimalSeparator('.');
 												DecimalFormat dform4 = new DecimalFormat("####.##", df4);
-											    moneyRes = "<div class='bo'><h5 id='bor'>BORDERO:</h5><h5 id='cx'>CAIXA:</h5>" +
+											    moneyRes = "<div class='bo'><h4 id='bor'>BORDERO:</h4><h4 id='cx'>CAIXA:</h4>" +
 													"<h5 id='ln'>------------</h5> <h5 id='ln2'>------------</h5>" +
 												"</div>"+
-												"<div class='bo'><h5 id='bor'>" + moneyResult.toString() + "</h5> <h5 id='cx'>" + money_.getText().toString() + "</h5></div>" +
-													"<div class='bo'><h5 id='cx2'>Dif: R$" + dform4.format(res) + "</h5></div>"+
+												"<div class='bo'><h4 id='bor'>" + moneyResult.toString() + "</h4> <h4 id='cx'>" + money_.getText().toString() + "</h4></div>" +
+													"<div class='bo'><h4 id='cx2'>Dif: R$" + dform4.format(res) + "</h4></div>"+
 												"</div>";
 											} else {
 												moneyRes = "";
@@ -352,7 +354,8 @@ public class fechaCaixa extends Activity
 											File root = new File(Environment.getExternalStorageDirectory(), "redução.html");
 											try{
 											  FileWriter fw = new FileWriter(root);
-												fw.write("<html>"+
+												fw.write(
+												    "<html>"+
 													"<head>"+
 													"<body>"+
 													"<style>"+
@@ -391,7 +394,7 @@ public class fechaCaixa extends Activity
 												"}"+
 												"#cx2{"+
 													"margin-top:20px;"+
-													"margin-right:30px;"+
+													"margin-right:5px;"+
 													"text-align:right;"+
 												"}"+
 												"#ln {"+
@@ -404,6 +407,49 @@ public class fechaCaixa extends Activity
 												"}"+
 												".bo {"+
 													"margin:10px;"+
+												"}"+
+													"#mot{"+
+													"color:#fff;"+
+													"padding:15px 50px 15px;"+
+													"background:#7015ff;"+
+												"}"+
+												"#val{"+
+													"color:#fff;"+
+													"padding:15px 50px 15px;"+
+													"background:#ff3400;"+
+												"}"+
+												"#clM{"+
+													"background:#f4aaff;"+
+													"padding:10px;"+
+												"}"+
+												"#clS{"+
+													"background:#00cc46;"+
+													"padding:10px;"+
+												"}"+
+												"#clL{"+
+													"color:#fff;"+
+													"background:#ff1f00;"+
+													"padding:10px;"+
+												"}"+
+												"#clso{"+
+													"background:#86ff6a68;"+
+													"padding:10px;"+
+												"}"+
+												"#clu{"+
+													"color:#fff;"+
+													"background:#ff340089;"+
+													"padding:10px;"+
+												"}"+
+												"#clVal{"+
+													"background:#90ff2b;"+
+													"padding:10px;"+
+												"}"+
+												".san{"+
+													"padding:15px;"+
+													"margin:10px;"+
+													"color:#fff;"+
+													"margin-bottom:0;"+
+													"background:#e32bff;"+
 												"}"+
 												"</style>"+
 												"</head>"+
