@@ -19,6 +19,7 @@ public class fechaCaixa extends Activity
 	
 	Context c = this;
 	ProgressDialog progress;
+	String sanR1, sanR2, sanR3, sanR4, sanR5, sanR6;
 	LinearLayout moneyid,sanid, elodid, elocid, visadid, visacid, masterdid, mastercid, hiperid, hipercid, cabalid, pixid, verdeid,
 	             soroid, personid, ouroid, banricid, banricoid, banesid, americid;
 	String moneyResult,sangRes, eloDResult, eloCResult, visaDResult, visaCResult, masterDResult, masterCResult, hiperResult, HiperCResult,
@@ -321,6 +322,68 @@ public class fechaCaixa extends Activity
 											String sanResult, moneyRes, eloDRes, eloCRes, visaDRes, visaCRes, masterDRes, masterCRes, hiperRes, hiperCRes, 
 												verdeRes, soroRes, personRes, ouroRes, banriRes, banricRes, banesRes, americRes;
 											if(!sangRes.toString().equals("")){
+												DB db = new DB(c);
+												util sanRes1 = db.sanFind(1);
+												util sanRes2 = db.sanFind(2);
+												util sanRes3 = db.sanFind(3);
+												util sanRes4 = db.sanFind(4);
+												util sanRes5 = db.sanFind(5);
+												util sanRes6 = db.sanFind(6);
+												
+												try{
+													if(!sanRes1.toString().equals("")){
+														sanR1 = "<tr>"+
+															"<td id='clM'>" + sanRes1.getSanMot() + "</td> <td id='clVal'>" + sanRes1.getSanVal() + "</td>"+
+															"</tr>";
+													}else{}
+												}catch(Exception e){
+													sanR1 = "";
+												}
+												try{
+													if(!sanRes2.toString().equals("")){
+														sanR2 = "<tr>"+
+															"<td id='clM'>" + sanRes2.getSanMot() + "</td> <td id='clVal'>" + sanRes2.getSanVal() + "</td>"+
+															"</tr>";
+													}else{}
+												}catch(Exception e){
+													sanR2 = "";
+												}
+												try{
+													if(!sanRes3.toString().equals("")){
+														sanR3 = "<tr>"+
+															"<td id='clM'>" + sanRes3.getSanMot() + "</td> <td id='clVal'>" + sanRes3.getSanVal() + "</td>"+
+															"</tr>";
+													}else{}
+												}catch(Exception e){
+													sanR3 = "";
+												}
+												try{
+													if(!sanRes4.toString().equals("")){
+														sanR4 = "<tr>"+
+															"<td id='clM'>" + sanRes4.getSanMot() + "</td> <td id='clVal'>" + sanRes4.getSanVal() + "</td>"+
+															"</tr>";
+													}else{}
+												}catch(Exception e){
+													sanR4 = "";
+												}
+												try{
+													if(!sanRes5.toString().equals("")){
+														sanR5 = "<tr>"+
+															"<td id='clM'>" + sanRes5.getSanMot() + "</td> <td id='clVal'>" + sanRes5.getSanVal() + "</td>"+
+															"</tr>";
+													}else{}
+												}catch(Exception e){
+													sanR5 = "";
+												}
+												try{
+													if(!sanRes6.toString().equals("")){
+														sanR6 = "<tr>"+
+															"<td id='clM'>" + sanRes6.getSanMot() + "</td> <td id='clVal'>" + sanRes6.getSanVal() + "</td>"+
+															"</tr>";
+													}else{}
+												}catch(Exception e){
+													sanR6 = "";
+												}
 												Double somaSan = new Double(sangRes);
 												Double compRes = new Double(sangria_.getText().toString());
 												double res = somaSan - compRes;
@@ -328,13 +391,40 @@ public class fechaCaixa extends Activity
 												df4.setGroupingSeparator('.');
 												df4.setDecimalSeparator('.');
 												DecimalFormat dform4 = new DecimalFormat("####.##", df4);
-												sanResult = dform4.format(res);
+												sanResult = "<div>"+
+													"<center>"+
+													"<div class='san'><b>Sangria de Caixa:</b></div>"+
+													"<table>"+
+													"<tr>"+
+													"<th id='mot'>Motivo</th><th id='val'>Valor</th>"+
+													sanR1.toString() +
+													sanR2.toString() +
+													sanR3.toString() +
+													sanR4.toString() + 
+													sanR5.toString() +
+													sanR6.toString() +
+													"<tr>"+
+													"<td id='clS'>Soma:</td> <td id='clL'>Lançado:</td>"+
+													"</tr>"+
+													"<tr>"+
+													"<td id='clso'>R$" + sangRes.toString() + "</td> <td id='clu'>R$" + sangria_.getText().toString() + "</td>"+
+													"</tr>"+
+													"<tr>"+
+													"<td></td><td id='clVal'>Diferença:</td>"+
+													"</tr>"+
+													"<tr>"+
+													"<td></td><td id='clVal'>R$" + dform4.format(res) + "</td>"+
+													"</tr>"+
+													"</tr>"+
+													"</table>"+
+													"</center>"+
+													"</div>";
 											} else {
 												sanResult = "";
 											}
-											DB db = new DB(c);
 											
 											if(!moneyResult.toString().equals("")){
+												
 												Double somaMoney = new Double(moneyResult);
 												Double compRes = new Double(money_.getText().toString());
 												double res = somaMoney - compRes;
@@ -457,6 +547,7 @@ public class fechaCaixa extends Activity
 												"<div class='nav2'><p id='bor'>Lucas Informática <br/><br/>Rua Colombo, 381 - Petrópolis <br/>CEP: 89209-005 - Joinville SC<br/><u>Data: 08/03/23</u><u id='dat'>Hora: 13:32:10</u></p><h4>+------------------------------------+</h4>REDUÇÃO Z:<h4>+------------------------------------+</h4>"+
 												"<br/>"+
 												moneyRes +
+												sanResult +
 												"</div></body></html>");
 											}catch(IOException e){
 												

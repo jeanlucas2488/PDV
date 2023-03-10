@@ -205,17 +205,18 @@ public class DB
 		}
 		return arr;
 	}
-	public void sanFind(long id){
+	public util sanFind(long id){
+		util us = new util();
 		Cursor cs = db.rawQuery("select * from sangria WHERE id="+id+"", null);
 		if(cs.moveToFirst()){
 			
 			do{
-				util us = new util();
 				us.setSanId(cs.getLong(cs.getColumnIndex("id")));
 				us.setSanVal(cs.getString(cs.getColumnIndex("valor")));
 				us.setSanMot(cs.getString(cs.getColumnIndex("motivo")));
 			}while(cs.moveToNext());
 		}
+		return us;
 	}
 	public List<util> opFind(){
 		ArrayList<util> arr = new ArrayList<util>();
