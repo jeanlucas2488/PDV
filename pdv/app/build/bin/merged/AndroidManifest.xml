@@ -36,6 +36,11 @@
             android:label="@string/app_pdv"
             android:theme="@style/App" >
         </activity>
+        <activity
+            android:name="lucas.client.service.caixa.setup.fechamentos.fechaCaixa"
+            android:label="@string/app_pdv"
+            android:theme="@style/dialog" >
+        </activity>
     </application>
 
 </manifest>

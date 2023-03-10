@@ -15,6 +15,7 @@ import lucas.client.service.caixa.adapters.*;
 import lucas.client.service.caixa.product.*;
 import lucas.client.service.sqlite.*;
 import lucas.client.service.etc.*;
+import lucas.client.service.caixa.setup.fechamentos.*;
 
 public class caixaMain extends Activity
 {
@@ -141,6 +142,9 @@ Context c = this;
 										// TODO: Implement this method
 										if(lc[p3].toString().startsWith("F")){
 											
+											Intent itr = new Intent(c, fechaCaixa.class);
+											startActivity(itr);
+											finish();
 										}
 									}			
 							});

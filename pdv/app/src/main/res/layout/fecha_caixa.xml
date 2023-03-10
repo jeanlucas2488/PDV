@@ -17,9 +17,13 @@
 			android:hint="Data..."
 			android:layout_marginLeft="10dp"
 			android:layout_marginRight="10dp"
-			android:layout_marginTop="10dp"/>
+			android:layout_marginTop="10dp"
+			android:textColor="#FFFFFF"
+			android:textColorHint="#FFFFFF"/>
 
 		<EditText
+			android:textColor="#FFFFFF"
+			android:textColorHint="#FFFFFF"
 			android:id="@+id/operador"
 			android:layout_width="wrap_content"
 			android:ems="20"
@@ -29,6 +33,8 @@
 			android:layout_marginRight="10dp"/>
 
 		<EditText
+			android:textColor="#FFFFFF"
+			android:textColorHint="#FFFFFF"
 			android:id="@+id/fundo"
 			android:layout_width="wrap_content"
 			android:ems="20"
@@ -38,6 +44,8 @@
 			android:layout_marginRight="10dp"/>
 
 		<EditText
+			android:textColor="#FFFFFF"
+			android:textColorHint="#FFFFFF"
 			android:id="@+id/sangria"
 			android:layout_width="wrap_content"
 			android:ems="20"
@@ -47,6 +55,8 @@
 			android:layout_marginRight="10dp"/>
 
 		<LinearLayout
+			android:textColor="#FFFFFF"
+			android:textColorHint="#FFFFFF"
 			android:id="@+id/money_ID"
 			android:orientation="vertical"
 			android:layout_width="match_parent"
@@ -62,6 +72,8 @@
 				android:textSize="18sp"/>
 
 			<EditText
+				android:textColor="#FFFFFF"
+				android:textColorHint="#FFFFFF"
 				android:id="@+id/dinheiro"
 				android:layout_width="wrap_content"
 				android:ems="20"
@@ -72,12 +84,13 @@
 		</LinearLayout>
 
 		<LinearLayout
+			android:id="@+id/trancard"
 			android:orientation="vertical"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:layout_marginTop="10dp"
-			android:layout_marginLeft="10dp"
-			android:layout_marginRight="10dp">
+			android:layout_marginTop="15dp"
+			android:layout_marginLeft="15dp"
+			android:layout_marginRight="15dp">
 
 			<TextView
 				android:layout_width="wrap_content"
@@ -102,9 +115,11 @@
 				android:layout_height="60dp"/>
 
 			<EditText
+				android:textColor="#FFFFFF"
+				android:textColorHint="#FFFFFF"
 				android:id="@+id/eloD"
 				android:layout_width="wrap_content"
-				android:ems="10"
+				android:ems="20"
 				android:layout_height="wrap_content"
 				android:hint="Elo Débito"/>
 
@@ -125,9 +140,11 @@
 				android:layout_height="60dp"/>
 
 			<EditText
+				android:textColor="#FFFFFF"
+				android:textColorHint="#FFFFFF"
 				android:id="@+id/eloC"
 				android:layout_width="wrap_content"
-				android:ems="10"
+				android:ems="20"
 				android:layout_height="wrap_content"
 				android:hint="Elo Crédito"/>
 
@@ -148,9 +165,11 @@
 				android:layout_height="60dp"/>
 
 			<EditText
+				android:textColor="#FFFFFF"
+				android:textColorHint="#FFFFFF"
 				android:id="@+id/visaD"
 				android:layout_width="wrap_content"
-				android:ems="10"
+				android:ems="20"
 				android:layout_height="wrap_content"
 				android:hint="Visa Débito"/>
 
@@ -171,9 +190,11 @@
 				android:layout_height="60dp"/>
 
 			<EditText
+				android:textColor="#FFFFFF"
+				android:textColorHint="#FFFFFF"
 				android:id="@+id/visaC"
 				android:layout_width="wrap_content"
-				android:ems="10"
+				android:ems="20"
 				android:layout_height="wrap_content"
 				android:hint="Visa Crédito"/>
 
@@ -194,9 +215,11 @@
 				android:layout_height="60dp"/>
 
 			<EditText
+				android:textColor="#FFFFFF"
+				android:textColorHint="#FFFFFF"
 				android:id="@+id/masterD"
 				android:layout_width="wrap_content"
-				android:ems="10"
+				android:ems="20"
 				android:layout_height="wrap_content"
 				android:hint="Master Débito"/>
 
@@ -217,9 +240,11 @@
 				android:layout_height="60dp"/>
 
 			<EditText
+				android:textColor="#FFFFFF"
+				android:textColorHint="#FFFFFF"
 				android:id="@+id/masterC"
 				android:layout_width="wrap_content"
-				android:ems="10"
+				android:ems="20"
 				android:layout_height="wrap_content"
 				android:hint="Master Crédito"/>
 
@@ -240,9 +265,11 @@
 				android:layout_height="40dp"/>
 
 			<EditText
+				android:textColor="#FFFFFF"
+				android:textColorHint="#FFFFFF"
 				android:id="@+id/hiper"
 				android:layout_width="wrap_content"
-				android:ems="10"
+				android:ems="20"
 				android:layout_height="wrap_content"
 				android:hint="Hiper"/>
 
@@ -263,9 +290,11 @@
 				android:layout_height="50dp"/>
 
 			<EditText
+				android:textColor="#FFFFFF"
+				android:textColorHint="#FFFFFF"
 				android:id="@+id/hiperc"
 				android:layout_width="wrap_content"
-				android:ems="10"
+				android:ems="20"
 				android:layout_height="wrap_content"
 				android:hint="Hiper Card"/>
 
@@ -286,9 +315,11 @@
 				android:layout_height="40dp"/>
 
 			<EditText
+				android:textColor="#FFFFFF"
+				android:textColorHint="#FFFFFF"
 				android:id="@+id/cabal"
 				android:layout_width="wrap_content"
-				android:ems="10"
+				android:ems="20"
 				android:layout_height="wrap_content"
 				android:hint="Cabal"/>
 
@@ -309,9 +340,11 @@
 				android:layout_height="40dp"/>
 
 			<EditText
+				android:textColor="#FFFFFF"
+				android:textColorHint="#FFFFFF"
 				android:id="@+id/pix"
 				android:layout_width="wrap_content"
-				android:ems="10"
+				android:ems="20"
 				android:layout_height="wrap_content"
 				android:hint="Pix"/>
 
@@ -332,9 +365,11 @@
 				android:layout_height="40dp"/>
 
 			<EditText
+				android:textColor="#FFFFFF"
+				android:textColorHint="#FFFFFF"
 				android:id="@+id/verde"
 				android:layout_width="wrap_content"
-				android:ems="10"
+				android:ems="20"
 				android:layout_height="wrap_content"
 				android:hint="Verde Card"/>
 
@@ -355,9 +390,11 @@
 				android:layout_height="40dp"/>
 
 			<EditText
+				android:textColor="#FFFFFF"
+				android:textColorHint="#FFFFFF"
 				android:id="@+id/soro"
 				android:layout_width="wrap_content"
-				android:ems="10"
+				android:ems="20"
 				android:layout_height="wrap_content"
 				android:hint="Soro Cred"/>
 
@@ -378,9 +415,11 @@
 				android:layout_height="50dp"/>
 
 			<EditText
+				android:textColor="#FFFFFF"
+				android:textColorHint="#FFFFFF"
 				android:id="@+id/person"
 				android:layout_width="wrap_content"
-				android:ems="10"
+				android:ems="20"
 				android:layout_height="wrap_content"
 				android:hint="Personal Card"/>
 
@@ -401,9 +440,11 @@
 				android:layout_height="40dp"/>
 
 			<EditText
+				android:textColor="#FFFFFF"
+				android:textColorHint="#FFFFFF"
 				android:id="@+id/ouro"
 				android:layout_width="wrap_content"
-				android:ems="10"
+				android:ems="20"
 				android:layout_height="wrap_content"
 				android:hint="Ouro Card"/>
 
@@ -424,9 +465,11 @@
 				android:layout_height="40dp"/>
 
 			<EditText
+				android:textColor="#FFFFFF"
+				android:textColorHint="#FFFFFF"
 				android:id="@+id/banrisul"
 				android:layout_width="wrap_content"
-				android:ems="10"
+				android:ems="20"
 				android:layout_height="wrap_content"
 				android:hint="BanriSul"/>
 
@@ -447,9 +490,11 @@
 				android:layout_height="40dp"/>
 
 			<EditText
+				android:textColor="#FFFFFF"
+				android:textColorHint="#FFFFFF"
 				android:id="@+id/banrico"
 				android:layout_width="wrap_content"
-				android:ems="10"
+				android:ems="20"
 				android:layout_height="wrap_content"
 				android:hint="BanriCompras"/>
 
@@ -470,9 +515,11 @@
 				android:layout_height="40dp"/>
 
 			<EditText
+				android:textColor="#FFFFFF"
+				android:textColorHint="#FFFFFF"
 				android:id="@+id/banes"
 				android:layout_width="wrap_content"
-				android:ems="10"
+				android:ems="20"
 				android:layout_height="wrap_content"
 				android:hint="BanesCard"/>
 
@@ -493,9 +540,11 @@
 				android:layout_height="50dp"/>
 
 			<EditText
+				android:textColor="#FFFFFF"
+				android:textColorHint="#FFFFFF"
 				android:id="@+id/americ"
 				android:layout_width="wrap_content"
-				android:ems="10"
+				android:ems="20"
 				android:layout_height="wrap_content"
 				android:hint="American Express"/>
 

@@ -20,7 +20,7 @@ public class fechaCaixa extends Activity
 	Context c = this;
 	ProgressDialog progress;
 	String sanR1, sanR2, sanR3, sanR4, sanR5, sanR6;
-	LinearLayout moneyid,sanid, elodid, elocid, visadid, visacid, masterdid, mastercid, hiperid, hipercid, cabalid, pixid, verdeid,
+	LinearLayout trancard, moneyid,sanid, elodid, elocid, visadid, visacid, masterdid, mastercid, hiperid, hipercid, cabalid, pixid, verdeid,
 	             soroid, personid, ouroid, banricid, banricoid, banesid, americid;
 	String moneyResult,sangRes, eloDResult, eloCResult, visaDResult, visaCResult, masterDResult, masterCResult, hiperResult, HiperCResult,
 	       cabalResult, pixResult, verdeResult, personResult, soroResult, ouroResult, banriResult, banricoResult, banesResult, americResult;
@@ -33,66 +33,71 @@ public class fechaCaixa extends Activity
 	{
 		// TODO: Implement this method
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.fecha_caixa);
-		moneyid = findViewById(R.id.money_ID);
-		
-		elodid = findViewById(R.id.eloD_ID);
-		elocid = findViewById(R.id.eloC_ID);
-		visadid = findViewById(R.id.visaD_ID);
-		visacid = findViewById(R.id.visaC_ID);
-		masterdid = findViewById(R.id.masterD_ID);
-		mastercid = findViewById(R.id.masterC_ID);
-		hiperid = findViewById(R.id.hiper_ID);
-		hipercid = findViewById(R.id.hiperC_ID);
-		cabalid = findViewById(R.id.cabal_ID);
-		pixid = findViewById(R.id.pix_ID);
-		verdeid = findViewById(R.id.verde_ID);
-		soroid = findViewById(R.id.soro_ID);
-		personid = findViewById(R.id.person_ID);
-		ouroid = findViewById(R.id.ouro_ID);
-		banricid = findViewById(R.id.banric_ID);
-		banricoid = findViewById(R.id.banrico_ID);
-		banesid = findViewById(R.id.banes_ID);
-		americid = findViewById(R.id.americ_ID);
-		fundo_ = findViewById(R.id.fundo);
-		sangria_ = findViewById(R.id.sangria);
-		operador_ = findViewById(R.id.operador);
-		money_ = findViewById(R.id.dinheiro);
-		eloD_ = findViewById(R.id.eloD);
-		eloC_ = findViewById(R.id.eloC);
-		visaD_ = findViewById(R.id.visaD);
-		visaC_ = findViewById(R.id.visaC);
-		masterD_ = findViewById(R.id.masterD);
-		masterC_ = findViewById(R.id.masterC);
-		hiper_ = findViewById(R.id.hiper);
-		hiperC_ = findViewById(R.id.hiperc);
-		cabal_ = findViewById(R.id.cabal);
-		pix_ = findViewById(R.id.pix);
-		verde_ = findViewById(R.id.verde);
-		soro_ = findViewById(R.id.soro);
-		person_ = findViewById(R.id.person);
-		ouro_ = findViewById(R.id.ouro);
-		banric_ = findViewById(R.id.banrisul);
-		banrico_ = findViewById(R.id.banrico);
-		banes_ = findViewById(R.id.banes);
-		americ_ = findViewById(R.id.americ);
-		canc = findViewById(R.id.canc);
-		fecha = findViewById(R.id.fecha);
+		LayoutInflater li = getLayoutInflater();
+		View r = li.inflate(R.layout.fecha_caixa, null);
+		moneyid = r.findViewById(R.id.money_ID);
+		trancard = r.findViewById(R.id.trancard);
+		trancard.setVisibility(View.GONE);
+		elodid = r.findViewById(R.id.eloD_ID);
+		elocid = r.findViewById(R.id.eloC_ID);
+		visadid = r.findViewById(R.id.visaD_ID);
+		visacid = r.findViewById(R.id.visaC_ID);
+		masterdid = r.findViewById(R.id.masterD_ID);
+		mastercid = r.findViewById(R.id.masterC_ID);
+		hiperid = r.findViewById(R.id.hiper_ID);
+		hipercid = r.findViewById(R.id.hiperC_ID);
+		cabalid = r.findViewById(R.id.cabal_ID);
+		pixid = r.findViewById(R.id.pix_ID);
+		verdeid = r.findViewById(R.id.verde_ID);
+		soroid = r.findViewById(R.id.soro_ID);
+		personid = r.findViewById(R.id.person_ID);
+		ouroid = r.findViewById(R.id.ouro_ID);
+		banricid = r.findViewById(R.id.banric_ID);
+		banricoid = r.findViewById(R.id.banrico_ID);
+		banesid = r.findViewById(R.id.banes_ID);
+		americid = r.findViewById(R.id.americ_ID);
+		fundo_ = r.findViewById(R.id.fundo);
+		sangria_ = r.findViewById(R.id.sangria);
+		operador_ = r.findViewById(R.id.operador);
+		money_ = r.findViewById(R.id.dinheiro);
+		eloD_ = r.findViewById(R.id.eloD);
+		eloC_ = r.findViewById(R.id.eloC);
+		visaD_ = r.findViewById(R.id.visaD);
+		visaC_ = r.findViewById(R.id.visaC);
+		masterD_ = r.findViewById(R.id.masterD);
+		masterC_ = r.findViewById(R.id.masterC);
+		hiper_ = r.findViewById(R.id.hiper);
+		hiperC_ = r.findViewById(R.id.hiperc);
+		cabal_ = r.findViewById(R.id.cabal);
+		pix_ = r.findViewById(R.id.pix);
+		verde_ = r.findViewById(R.id.verde);
+		soro_ = r.findViewById(R.id.soro);
+		person_ = r.findViewById(R.id.person);
+		ouro_ = r.findViewById(R.id.ouro);
+		banric_ = r.findViewById(R.id.banrisul);
+		banrico_ = r.findViewById(R.id.banrico);
+		banes_ = r.findViewById(R.id.banes);
+		americ_ = r.findViewById(R.id.americ);
+		canc = r.findViewById(R.id.canc);
+		fecha = r.findViewById(R.id.fecha);
 		
 		try{
 			DB db = new DB(c);
 			sangria = db.saFind();
 			if(sangria.get(0).getSangria().equals("")){
+				sangria_.setVisibility(View.VISIBLE);
 			    sangRes = sangria.get(0).getSangria();
 			} 
 		}catch(Exception e){
 			sangRes = "";
+			sangria_.setVisibility(View.GONE);
 		}
 		try{
 			DB db = new DB(c);
 			americ = db.ameFind();
-			if(americ.get(0).getAmeric().equals("")){
+			if(!americ.get(0).getAmeric().equals("")){
 				americid.setVisibility(View.VISIBLE);
+				trancard.setVisibility(View.VISIBLE);
 			    americResult = americ.get(0).getAmeric();
 			} 
 		}catch(Exception e){
@@ -102,7 +107,8 @@ public class fechaCaixa extends Activity
 		try{
 			DB db = new DB(c);
 			banes = db.banesFind();
-			if(banes.get(0).getBanes().equals("")){
+			if(!banes.get(0).getBanes().equals("")){
+				trancard.setVisibility(View.VISIBLE);
 				banesid.setVisibility(View.VISIBLE);
 			    banesResult = banes.get(0).getBanes();
 			} 
@@ -113,7 +119,8 @@ public class fechaCaixa extends Activity
 		try{
 			DB db = new DB(c);
 			banrico = db.banriCFind();
-			if(banrico.get(0).getBanriC().equals("")){
+			if(!banrico.get(0).getBanriC().equals("")){
+				trancard.setVisibility(View.VISIBLE);
 				banricoid.setVisibility(View.VISIBLE);
 			    banricoResult = banrico.get(0).getBanriC();
 			} 
@@ -124,7 +131,8 @@ public class fechaCaixa extends Activity
 		try{
 			DB db = new DB(c);
 			banric = db.banriFind();
-			if(banric.get(0).getbanric().equals("")){
+			if(!banric.get(0).getbanric().equals("")){
+				trancard.setVisibility(View.VISIBLE);
 				banricid.setVisibility(View.VISIBLE);
 			    banriResult = banric.get(0).getbanric();
 			} 
@@ -135,7 +143,8 @@ public class fechaCaixa extends Activity
 		try{
 			DB db = new DB(c);
 			ouro = db.ouroFind();
-			if(ouro.get(0).getOuro().equals("")){
+			if(!ouro.get(0).getOuro().equals("")){
+				trancard.setVisibility(View.VISIBLE);
 				ouroid.setVisibility(View.VISIBLE);
 			    ouroResult = ouro.get(0).getOuro();
 			} 
@@ -146,7 +155,8 @@ public class fechaCaixa extends Activity
 		try{
 			DB db = new DB(c);
 			person = db.personFind();
-			if(person.get(0).getPerson().equals("")){
+			if(!person.get(0).getPerson().equals("")){
+				trancard.setVisibility(View.VISIBLE);
 				personid.setVisibility(View.VISIBLE);
 			    personResult = person.get(0).getPerson();
 			} 
@@ -157,7 +167,8 @@ public class fechaCaixa extends Activity
 		try{
 			DB db = new DB(c);
 			soro = db.soroFind();
-			if(soro.get(0).getSoro().equals("")){
+			if(!soro.get(0).getSoro().equals("")){
+				trancard.setVisibility(View.VISIBLE);
 				soroid.setVisibility(View.VISIBLE);
 			    soroResult = soro.get(0).getSoro();
 			} 
@@ -168,7 +179,8 @@ public class fechaCaixa extends Activity
 		try{
 			DB db = new DB(c);
 			verde = db.verdeFind();
-			if(verde.get(0).getVerde().equals("")){
+			if(!verde.get(0).getVerde().equals("")){
+				trancard.setVisibility(View.VISIBLE);
 				verdeid.setVisibility(View.VISIBLE);
 			    verdeResult = verde.get(0).getVerde();
 			} 
@@ -179,7 +191,8 @@ public class fechaCaixa extends Activity
 		try{
 			DB db = new DB(c);
 			pix = db.pixFind();
-			if(pix.get(0).getPix().equals("")){
+			if(!pix.get(0).getPix().equals("")){
+				trancard.setVisibility(View.VISIBLE);
 				pixid.setVisibility(View.VISIBLE);
 			    pixResult = pix.get(0).getPix();
 			} 
@@ -190,7 +203,8 @@ public class fechaCaixa extends Activity
 		try{
 			DB db = new DB(c);
 			cabal = db.cabalFind();
-			if(cabal.get(0).getCabal().equals("")){
+			if(!cabal.get(0).getCabal().equals("")){
+				trancard.setVisibility(View.VISIBLE);
 				cabalid.setVisibility(View.VISIBLE);
 			    cabalResult = cabal.get(0).getCabal();
 			} 
@@ -201,7 +215,8 @@ public class fechaCaixa extends Activity
 		try{
 			DB db = new DB(c);
 			hiperC = db.hiperCFind();
-			if(hiperC.get(0).getHiperC().equals("")){
+			if(!hiperC.get(0).getHiperC().equals("")){
+				trancard.setVisibility(View.VISIBLE);
 				hipercid.setVisibility(View.VISIBLE);
 			    HiperCResult = hiperC.get(0).getHiperC();
 			} 
@@ -212,7 +227,8 @@ public class fechaCaixa extends Activity
 		try{
 			DB db = new DB(c);
 			hiper = db.hiperFind();
-			if(hiper.get(0).getHiper().equals("")){
+			if(!hiper.get(0).getHiper().equals("")){
+				trancard.setVisibility(View.VISIBLE);
 				hiperid.setVisibility(View.VISIBLE);
 			    hiperResult = hiper.get(0).getHiper();
 			} 
@@ -223,7 +239,8 @@ public class fechaCaixa extends Activity
 		try{
 			DB db = new DB(c);
 			masterC = db.masterCFind();
-			if(masterC.get(0).getMasterC().equals("")){
+			if(!masterC.get(0).getMasterC().equals("")){
+				trancard.setVisibility(View.VISIBLE);
 				mastercid.setVisibility(View.VISIBLE);
 			    masterCResult = masterC.get(0).getMasterC();
 			} 
@@ -234,7 +251,8 @@ public class fechaCaixa extends Activity
 		try{
 			DB db = new DB(c);
 			masterD = db.masterDFind();
-			if(masterD.get(0).getMasterD().equals("")){
+			if(!masterD.get(0).getMasterD().equals("")){
+				trancard.setVisibility(View.VISIBLE);
 				masterdid.setVisibility(View.VISIBLE);
 			    masterDResult = masterD.get(0).getMasterD();
 			} 
@@ -245,7 +263,8 @@ public class fechaCaixa extends Activity
 		try{
 			DB db = new DB(c);
 			visaC = db.visaCFind();
-			if(visaC.get(0).getVisaC().equals("")){
+			if(!visaC.get(0).getVisaC().equals("")){
+				trancard.setVisibility(View.VISIBLE);
 				visacid.setVisibility(View.VISIBLE);
 			    visaCResult = visaC.get(0).getVisaC();
 			} 
@@ -256,7 +275,8 @@ public class fechaCaixa extends Activity
 		try{
 			DB db = new DB(c);
 			visaD = db.visaDFind();
-			if(visaD.get(0).getVisaD().equals("")){
+			if(!visaD.get(0).getVisaD().equals("")){
+				trancard.setVisibility(View.VISIBLE);
 				visadid.setVisibility(View.VISIBLE);
 			    visaDResult = visaD.get(0).getVisaD();
 			} 
@@ -267,7 +287,8 @@ public class fechaCaixa extends Activity
 		try{
 			DB db = new DB(c);
 			eloC = db.eloCFind();
-			if(eloC.get(0).getEloC().equals("")){
+			if(!eloC.get(0).getEloC().equals("")){
+				trancard.setVisibility(View.VISIBLE);
 				elocid.setVisibility(View.VISIBLE);
 				eloCResult = eloC.get(0).getEloC();
 			} 
@@ -278,13 +299,15 @@ public class fechaCaixa extends Activity
 		try{
 			DB db = new DB(c);
 			eloD = db.eloDFind();
-			if(eloD.get(0).getEloD().equals("")){
+			if(!eloD.get(0).getEloD().equals("")){
+				trancard.setVisibility(View.VISIBLE);
 				elodid.setVisibility(View.VISIBLE);
 				eloDResult = eloD.get(0).getEloD();
 			} 
 		}catch(Exception e){
 			elodid.setVisibility(View.GONE);
 			eloDResult = "";
+			
 		}
 		try{
 			DB db = new DB(c);
@@ -904,5 +927,10 @@ public class fechaCaixa extends Activity
 					finish();
 				}
 			});
+			AlertDialog.Builder br = new AlertDialog.Builder(c, R.style.dialog);
+			br.setTitle("Fechamento de Caixa");
+			br.setView(r);
+			br.create();
+			br.show();
 	}
 }

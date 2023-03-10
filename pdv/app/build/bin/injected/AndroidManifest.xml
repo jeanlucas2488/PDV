@@ -52,6 +52,13 @@
 
 		</activity>
 
+		<activity
+			android:theme="@style/dialog"
+			android:name=".caixa.setup.fechamentos.fechaCaixa"
+			android:label="@string/app_pdv">
+
+		</activity>
+
 	</application>
 
 </manifest>
