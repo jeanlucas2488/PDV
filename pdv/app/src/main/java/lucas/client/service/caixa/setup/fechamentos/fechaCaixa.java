@@ -319,7 +319,7 @@ public class fechaCaixa extends Activity
 										handle.sendMessage(handle.obtainMessage());
 										if (progress.getProgress() == 14) {
 											progress.setMessage("Gerando NFe da Redução Z...");
-											String sanResult, moneyRes, eloDRes, eloCRes, visaDRes, visaCRes, masterDRes, masterCRes, hiperRes, hiperCRes, 
+											String sanResult, moneyRes, eloDRes, eloCRes, visaDRes, visaCRes, masterDRes, masterCRes, hiperRes, hiperCRes, cabalRes, pixRes,
 												verdeRes, soroRes, personRes, ouroRes, banriRes, banricRes, banesRes, americRes;
 											if(!sangRes.toString().equals("")){
 												DB db = new DB(c);
@@ -329,7 +329,6 @@ public class fechaCaixa extends Activity
 												util sanRes4 = db.sanFind(4);
 												util sanRes5 = db.sanFind(5);
 												util sanRes6 = db.sanFind(6);
-												
 												try{
 													if(!sanRes1.toString().equals("")){
 														sanR1 = "<tr>"+
@@ -424,7 +423,6 @@ public class fechaCaixa extends Activity
 											}
 											
 											if(!moneyResult.toString().equals("")){
-												
 												Double somaMoney = new Double(moneyResult);
 												Double compRes = new Double(money_.getText().toString());
 												double res = somaMoney - compRes;
@@ -437,12 +435,300 @@ public class fechaCaixa extends Activity
 												"</div>"+
 												"<div class='bo'><h4 id='bor'>" + moneyResult.toString() + "</h4> <h4 id='cx'>" + money_.getText().toString() + "</h4></div>" +
 													"<div class='bo'><h4 id='cx2'>Dif: R$" + dform4.format(res) + "</h4></div>"+
-												"</div>";
+												"</div><br/><br/>";
 											} else {
 												moneyRes = "";
 											}
-											File root = new File(Environment.getExternalStorageDirectory(), "redução.html");
+											if(!eloDResult.toString().equals("")){
+												Double somaEloD = new Double(eloDResult);
+												Double compRes = new Double(eloD_.getText().toString());
+												double res = somaEloD - compRes;
+												DecimalFormatSymbols df4 = new DecimalFormatSymbols();
+												df4.setGroupingSeparator('.');
+												df4.setDecimalSeparator('.');
+												DecimalFormat dform4 = new DecimalFormat("####.##", df4);
+											    eloDRes = "<div><p style='text-align:left;'>"+
+													"<b style='text-align:left;'>Elo Débito: R$" + eloDResult.toString() + "</b>"+
+												    "<b style='float:right;'>R$" + eloD_.getText().toString() + "</b><br/>"+
+												    "<b style='float:right;'>---------</b><br/><b style='float:right;'>R$" + dform4.format(res) + "</b>"+
+												    "</p></div><br/>";
+											} else {
+												eloDRes = "";
+											}
+											if(!eloCResult.toString().equals("")){
+												Double somaEloC = new Double(eloCResult);
+												Double compRes = new Double(eloC_.getText().toString());
+												double res = somaEloC - compRes;
+												DecimalFormatSymbols df4 = new DecimalFormatSymbols();
+												df4.setGroupingSeparator('.');
+												df4.setDecimalSeparator('.');
+												DecimalFormat dform4 = new DecimalFormat("####.##", df4);
+											    eloCRes = "<br/><br/><div><p style='text-align:left;'>"+
+													"<b style='text-align:left;'>Elo Crédito: R$" + eloCResult.toString() + "</b>"+
+												    "<b style='float:right;'>R$" + eloC_.getText().toString() + "</b><br/>"+
+												    "<b style='float:right;'>---------</b><br/><b style='float:right;'>R$" + dform4.format(res) + "</b>"+
+												    "</p></div><br/>";
+											} else {
+												eloCRes = "";
+											}
+											if(!visaDResult.toString().equals("")){
+												Double somaVisaD = new Double(visaDResult);
+												Double compRes = new Double(visaD_.getText().toString());
+												double res = somaVisaD - compRes;
+												DecimalFormatSymbols df4 = new DecimalFormatSymbols();
+												df4.setGroupingSeparator('.');
+												df4.setDecimalSeparator('.');
+												DecimalFormat dform4 = new DecimalFormat("####.##", df4);
+											    visaDRes = "<br/><br/><div><p style='text-align:left;'>"+
+													"<b style='text-align:left;'>Visa Débito: R$" + visaDResult.toString() + "</b>"+
+												    "<b style='float:right;'>R$" + visaD_.getText().toString() + "</b><br/>"+
+												    "<b style='float:right;'>---------</b><br/><b style='float:right;'>R$" + dform4.format(res) + "</b>"+
+												    "</p></div><br/>";
+											} else {
+												visaDRes = "";
+											}
+											if(!visaCResult.toString().equals("")){
+												Double somaVisaC = new Double(visaCResult);
+												Double compRes = new Double(visaC_.getText().toString());
+												double res = somaVisaC - compRes;
+												DecimalFormatSymbols df4 = new DecimalFormatSymbols();
+												df4.setGroupingSeparator('.');
+												df4.setDecimalSeparator('.');
+												DecimalFormat dform4 = new DecimalFormat("####.##", df4);
+											    visaCRes = "<br/><br/><div><p style='text-align:left;'>"+
+													"<b style='text-align:left;'>Visa Crédito: R$" + visaCResult.toString() + "</b>"+
+												    "<b style='float:right;'>R$" + visaC_.getText().toString() + "</b><br/>"+
+												    "<b style='float:right;'>---------</b><br/><b style='float:right;'>R$" + dform4.format(res) + "</b>"+
+												    "</p></div><br/>";
+											} else {
+												visaCRes = "";
+											}
+											if(!masterDResult.toString().equals("")){
+												Double somaMasterD = new Double(masterDResult);
+												Double compRes = new Double(masterD_.getText().toString());
+												double res = somaMasterD - compRes;
+												DecimalFormatSymbols df4 = new DecimalFormatSymbols();
+												df4.setGroupingSeparator('.');
+												df4.setDecimalSeparator('.');
+												DecimalFormat dform4 = new DecimalFormat("####.##", df4);
+											    masterDRes = "<br/><br/><div><p style='text-align:left;'>"+
+													"<b style='text-align:left;'>Master Débito: R$" + masterDResult.toString() + "</b>"+
+												    "<b style='float:right;'>R$" + masterD_.getText().toString() + "</b><br/>"+
+												    "<b style='float:right;'>---------</b><br/><b style='float:right;'>R$" + dform4.format(res) + "</b>"+
+												    "</p></div><br/>";
+											} else {
+												masterDRes = "";
+											}
+											if(!masterCResult.toString().equals("")){
+												Double somaMasterC = new Double(masterCResult);
+												Double compRes = new Double(masterC_.getText().toString());
+												double res = somaMasterC - compRes;
+												DecimalFormatSymbols df4 = new DecimalFormatSymbols();
+												df4.setGroupingSeparator('.');
+												df4.setDecimalSeparator('.');
+												DecimalFormat dform4 = new DecimalFormat("####.##", df4);
+											    masterCRes = "<br/><br/><div><p style='text-align:left;'>"+
+													"<b style='text-align:left;'>Master Crédito: R$" + masterCResult.toString() + "</b>"+
+												    "<b style='float:right;'>R$" + masterC_.getText().toString() + "</b><br/>"+
+												    "<b style='float:right;'>---------</b><br/><b style='float:right;'>R$" + dform4.format(res) + "</b>"+
+												    "</p></div><br/>";
+											} else {
+												masterCRes = "";
+											}
+											if(!hiperResult.toString().equals("")){
+												Double somaHiper = new Double(hiperResult);
+												Double compRes = new Double(hiper_.getText().toString());
+												double res = somaHiper - compRes;
+												DecimalFormatSymbols df4 = new DecimalFormatSymbols();
+												df4.setGroupingSeparator('.');
+												df4.setDecimalSeparator('.');
+												DecimalFormat dform4 = new DecimalFormat("####.##", df4);
+											    hiperRes = "<br/><br/><div><p style='text-align:left;'>"+
+													"<b style='text-align:left;'>Hiper: R$" + hiperResult.toString() + "</b>"+
+												    "<b style='float:right;'>R$" + hiper_.getText().toString() + "</b><br/>"+
+												    "<b style='float:right;'>---------</b><br/><b style='float:right;'>R$" + dform4.format(res) + "</b>"+
+												    "</p></div><br/>";
+											} else {
+												hiperRes = "";
+											}
+											if(!HiperCResult.toString().equals("")){
+												Double somaHiperC = new Double(HiperCResult);
+												Double compRes = new Double(hiperC_.getText().toString());
+												double res = somaHiperC - compRes;
+												DecimalFormatSymbols df4 = new DecimalFormatSymbols();
+												df4.setGroupingSeparator('.');
+												df4.setDecimalSeparator('.');
+												DecimalFormat dform4 = new DecimalFormat("####.##", df4);
+											    hiperCRes = "<br/><br/><div><p style='text-align:left;'>"+
+													"<b style='text-align:left;'>HiperCard: R$" + HiperCResult.toString() + "</b>"+
+												    "<b style='float:right;'>R$" + hiperC_.getText().toString() + "</b><br/>"+
+												    "<b style='float:right;'>---------</b><br/><b style='float:right;'>R$" + dform4.format(res) + "</b>"+
+												    "</p></div><br/>";
+											} else {
+												hiperCRes = "";
+											}
+											if(!cabalResult.toString().equals("")){
+												Double somaCabal = new Double(cabalResult);
+												Double compRes = new Double(cabal_.getText().toString());
+												double res = somaCabal - compRes;
+												DecimalFormatSymbols df4 = new DecimalFormatSymbols();
+												df4.setGroupingSeparator('.');
+												df4.setDecimalSeparator('.');
+												DecimalFormat dform4 = new DecimalFormat("####.##", df4);
+											    cabalRes = "<br/><br/><div><p style='text-align:left;'>"+
+													"<b style='text-align:left;'>Cabal Débito: R$" + cabalResult.toString() + "</b>"+
+												    "<b style='float:right;'>R$" + cabal_.getText().toString() + "</b><br/>"+
+												    "<b style='float:right;'>---------</b><br/><b style='float:right;'>R$" + dform4.format(res) + "</b>"+
+												    "</p></div><br/>";
+											} else {
+												cabalRes = "";
+											}
+											if(!pixResult.toString().equals("")){
+												Double somaPix = new Double(pixResult);
+												Double compRes = new Double(pix_.getText().toString());
+												double res = somaPix - compRes;
+												DecimalFormatSymbols df4 = new DecimalFormatSymbols();
+												df4.setGroupingSeparator('.');
+												df4.setDecimalSeparator('.');
+												DecimalFormat dform4 = new DecimalFormat("####.##", df4);
+											    pixRes = "<br/><br/><div><p style='text-align:left;'>"+
+													"<b style='text-align:left;'>Pix: R$" + pixResult.toString() + "</b>"+
+												    "<b style='float:right;'>R$" + pix_.getText().toString() + "</b><br/>"+
+												    "<b style='float:right;'>---------</b><br/><b style='float:right;'>R$" + dform4.format(res) + "</b>"+
+												    "</p></div><br/>";
+											} else {
+												pixRes = "";
+											}
+											if(!verdeResult.toString().equals("")){
+												Double somaVerde = new Double(verdeResult);
+												Double compRes = new Double(verde_.getText().toString());
+												double res = somaVerde - compRes;
+												DecimalFormatSymbols df4 = new DecimalFormatSymbols();
+												df4.setGroupingSeparator('.');
+												df4.setDecimalSeparator('.');
+												DecimalFormat dform4 = new DecimalFormat("####.##", df4);
+											    verdeRes = "<br/><br/><div><p style='text-align:left;'>"+
+													"<b style='text-align:left;'>VerdeCard: R$" + verdeResult.toString() + "</b>"+
+												    "<b style='float:right;'>R$" + verde_.getText().toString() + "</b><br/>"+
+												    "<b style='float:right;'>---------</b><br/><b style='float:right;'>R$" + dform4.format(res) + "</b>"+
+												    "</p></div><br/>";
+											} else {
+												verdeRes = "";
+											}
+											if(!soroResult.toString().equals("")){
+												Double somaSoro = new Double(soroResult);
+												Double compRes = new Double(soro_.getText().toString());
+												double res = somaSoro - compRes;
+												DecimalFormatSymbols df4 = new DecimalFormatSymbols();
+												df4.setGroupingSeparator('.');
+												df4.setDecimalSeparator('.');
+												DecimalFormat dform4 = new DecimalFormat("####.##", df4);
+											    soroRes = "<br/><br/><div><p style='text-align:left;'>"+
+													"<b style='text-align:left;'>SoroCred: R$" + soroResult.toString() + "</b>"+
+												    "<b style='float:right;'>R$" + soro_.getText().toString() + "</b><br/>"+
+												    "<b style='float:right;'>---------</b><br/><b style='float:right;'>R$" + dform4.format(res) + "</b>"+
+												    "</p></div><br/>";
+											} else {
+												soroRes = "";
+											}
+											if(!personResult.toString().equals("")){
+												Double somaPerson = new Double(personResult);
+												Double compRes = new Double(person_.getText().toString());
+												double res = somaPerson - compRes;
+												DecimalFormatSymbols df4 = new DecimalFormatSymbols();
+												df4.setGroupingSeparator('.');
+												df4.setDecimalSeparator('.');
+												DecimalFormat dform4 = new DecimalFormat("####.##", df4);
+											    personRes = "<br/><br/><div><p style='text-align:left;'>"+
+													"<b style='text-align:left;'>Personal Card: R$" + personResult.toString() + "</b>"+
+												    "<b style='float:right;'>R$" + person_.getText().toString() + "</b><br/>"+
+												    "<b style='float:right;'>---------</b><br/><b style='float:right;'>R$" + dform4.format(res) + "</b>"+
+												    "</p></div><br/>";
+											} else {
+												personRes = "";
+											}
+											if(!ouroResult.toString().equals("")){
+												Double somaOuro = new Double(ouroResult);
+												Double compRes = new Double(ouro_.getText().toString());
+												double res = somaOuro - compRes;
+												DecimalFormatSymbols df4 = new DecimalFormatSymbols();
+												df4.setGroupingSeparator('.');
+												df4.setDecimalSeparator('.');
+												DecimalFormat dform4 = new DecimalFormat("####.##", df4);
+											    ouroRes = "<br/><br/><div><p style='text-align:left;'>"+
+													"<b style='text-align:left;'>OuroCard: R$" + ouroResult.toString() + "</b>"+
+												    "<b style='float:right;'>R$" + ouro_.getText().toString() + "</b><br/>"+
+												    "<b style='float:right;'>---------</b><br/><b style='float:right;'>R$" + dform4.format(res) + "</b>"+
+												    "</p></div><br/>";
+											} else {
+												ouroRes = "";
+											}
+											if(!banriResult.toString().equals("")){
+												Double somaBanri = new Double(banriResult);
+												Double compRes = new Double(banric_.getText().toString());
+												double res = somaBanri - compRes;
+												DecimalFormatSymbols df4 = new DecimalFormatSymbols();
+												df4.setGroupingSeparator('.');
+												df4.setDecimalSeparator('.');
+												DecimalFormat dform4 = new DecimalFormat("####.##", df4);
+											    banriRes = "<br/><br/><div><p style='text-align:left;'>"+
+													"<b style='text-align:left;'>BanriSul: R$" + banriResult.toString() + "</b>"+
+												    "<b style='float:right;'>R$" + banric_.getText().toString() + "</b><br/>"+
+												    "<b style='float:right;'>---------</b><br/><b style='float:right;'>R$" + dform4.format(res) + "</b>"+
+												    "</p></div><br/>";
+											} else {
+												banriRes = "";
+											}
+											if(!banricoResult.toString().equals("")){
+												Double somaBanric = new Double(banricoResult);
+												Double compRes = new Double(masterD_.getText().toString());
+												double res = somaBanric - compRes;
+												DecimalFormatSymbols df4 = new DecimalFormatSymbols();
+												df4.setGroupingSeparator('.');
+												df4.setDecimalSeparator('.');
+												DecimalFormat dform4 = new DecimalFormat("####.##", df4);
+											    banricRes = "<br/><br/><div><p style='text-align:left;'>"+
+													"<b style='text-align:left;'>BanriCompras: R$" + banricoResult.toString() + "</b>"+
+												    "<b style='float:right;'>R$" + banrico_.getText().toString() + "</b><br/>"+
+												    "<b style='float:right;'>---------</b><br/><b style='float:right;'>R$" + dform4.format(res) + "</b>"+
+												    "</p></div><br/>";
+											} else {
+												banricRes = "";
+											}
+											if(!banesResult.toString().equals("")){
+												Double somaBanes = new Double(banesResult);
+												Double compRes = new Double(banes_.getText().toString());
+												double res = somaBanes - compRes;
+												DecimalFormatSymbols df4 = new DecimalFormatSymbols();
+												df4.setGroupingSeparator('.');
+												df4.setDecimalSeparator('.');
+												DecimalFormat dform4 = new DecimalFormat("####.##", df4);
+											    banesRes = "<br/><br/><div><p style='text-align:left;'>"+
+													"<b style='text-align:left;'>BanesCard: R$" + banesResult.toString() + "</b>"+
+												    "<b style='float:right;'>R$" + banes_.getText().toString() + "</b><br/>"+
+												    "<b style='float:right;'>---------</b><br/><b style='float:right;'>R$" + dform4.format(res) + "</b>"+
+												    "</p></div><br/>";
+											} else {
+												banesRes = "";
+											}
+											if(!americResult.toString().equals("")){
+												Double somaAmeric = new Double(americResult);
+												Double compRes = new Double(americ_.getText().toString());
+												double res = somaAmeric - compRes;
+												DecimalFormatSymbols df4 = new DecimalFormatSymbols();
+												df4.setGroupingSeparator('.');
+												df4.setDecimalSeparator('.');
+												DecimalFormat dform4 = new DecimalFormat("####.##", df4);
+											    americRes = "<br/><br/><div><p style='text-align:left;'>"+
+													"<b style='text-align:left;'>American Express: R$" + americResult.toString() + "</b>"+
+												    "<b style='float:right;'>R$" + americ_.getText().toString() + "</b><br/>"+
+												    "<b style='float:right;'>---------</b><br/><b style='float:right;'>R$" + dform4.format(res) + "</b>"+
+												    "</p></div><br/>";
+											} else {
+												americRes = "";
+											}
 											try{
+											  File root = new File(Environment.getExternalStorageDirectory(), "redução.html");
 											  FileWriter fw = new FileWriter(root);
 												fw.write(
 												    "<html>"+
@@ -548,6 +834,24 @@ public class fechaCaixa extends Activity
 												"<br/>"+
 												moneyRes +
 												sanResult +
+												eloDRes +
+												eloCRes + 
+												visaDRes +
+												visaCRes +
+												masterDRes +
+												masterCRes +
+												hiperRes +
+												hiperCRes +
+												cabalRes +
+												pixRes +
+												verdeRes +
+												soroRes +
+												personRes +
+												ouroRes +
+												banriRes +
+												banricRes +
+												banesRes +
+												americRes +
 												"</div></body></html>");
 											}catch(IOException e){
 												
