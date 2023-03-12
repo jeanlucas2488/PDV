@@ -110,6 +110,7 @@
 			android:layout_marginRight="10dp">
 
 			<ImageView
+				android:layout_marginTop="-5dp"
 				android:src="@drawable/elo"
 				android:layout_width="57dp"
 				android:layout_height="60dp"/>
@@ -135,6 +136,7 @@
 			android:layout_marginRight="10dp">
 
 			<ImageView
+				android:layout_marginTop="-5dp"
 				android:src="@drawable/elo"
 				android:layout_width="57dp"
 				android:layout_height="60dp"/>
@@ -161,8 +163,8 @@
 
 			<ImageView
 				android:src="@drawable/visa"
-				android:layout_width="57dp"
-				android:layout_height="60dp"/>
+				android:layout_width="50dp"
+				android:layout_height="45dp"/>
 
 			<EditText
 				android:textColor="#FFFFFF"
@@ -180,14 +182,14 @@
 			android:orientation="horizontal"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:layout_marginTop="5dp"
+			android:layout_marginTop="10dp"
 			android:layout_marginLeft="10dp"
 			android:layout_marginRight="10dp">
 
 			<ImageView
 				android:src="@drawable/visa"
-				android:layout_width="57dp"
-				android:layout_height="60dp"/>
+				android:layout_width="50dp"
+				android:layout_height="45dp"/>
 
 			<EditText
 				android:textColor="#FFFFFF"
@@ -205,14 +207,14 @@
 			android:orientation="horizontal"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:layout_marginTop="5dp"
+			android:layout_marginTop="10dp"
 			android:layout_marginLeft="10dp"
 			android:layout_marginRight="10dp">
 
 			<ImageView
 				android:src="@drawable/master"
-				android:layout_width="57dp"
-				android:layout_height="60dp"/>
+				android:layout_width="50dp"
+				android:layout_height="45dp"/>
 
 			<EditText
 				android:textColor="#FFFFFF"
@@ -230,14 +232,14 @@
 			android:orientation="horizontal"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:layout_marginTop="5dp"
+			android:layout_marginTop="10dp"
 			android:layout_marginLeft="10dp"
 			android:layout_marginRight="10dp">
 
 			<ImageView
 				android:src="@drawable/master"
-				android:layout_width="57dp"
-				android:layout_height="60dp"/>
+				android:layout_width="50dp"
+				android:layout_height="45dp"/>
 
 			<EditText
 				android:textColor="#FFFFFF"
@@ -255,14 +257,14 @@
 			android:orientation="horizontal"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:layout_marginTop="5dp"
+			android:layout_marginTop="10dp"
 			android:layout_marginLeft="20dp"
 			android:layout_marginRight="10dp">
 
 			<ImageView
 				android:src="@drawable/hiper"
-				android:layout_width="40dp"
-				android:layout_height="40dp"/>
+				android:layout_width="35dp"
+				android:layout_height="30dp"/>
 
 			<EditText
 				android:textColor="#FFFFFF"
@@ -280,14 +282,14 @@
 			android:orientation="horizontal"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:layout_marginTop="5dp"
+			android:layout_marginTop="10dp"
 			android:layout_marginLeft="15dp"
 			android:layout_marginRight="10dp">
 
 			<ImageView
 				android:src="@drawable/hiperc"
-				android:layout_width="45dp"
-				android:layout_height="50dp"/>
+				android:layout_width="40dp"
+				android:layout_height="35dp"/>
 
 			<EditText
 				android:textColor="#FFFFFF"
@@ -305,14 +307,14 @@
 			android:orientation="horizontal"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:layout_marginTop="5dp"
+			android:layout_marginTop="10dp"
 			android:layout_marginLeft="20dp"
 			android:layout_marginRight="10dp">
 
 			<ImageView
 				android:src="@drawable/cabal"
-				android:layout_width="40dp"
-				android:layout_height="40dp"/>
+				android:layout_width="35dp"
+				android:layout_height="30dp"/>
 
 			<EditText
 				android:textColor="#FFFFFF"
@@ -330,14 +332,14 @@
 			android:orientation="horizontal"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:layout_marginTop="5dp"
+			android:layout_marginTop="10dp"
 			android:layout_marginLeft="20dp"
 			android:layout_marginRight="10dp">
 
 			<ImageView
 				android:src="@drawable/pix"
-				android:layout_width="40dp"
-				android:layout_height="40dp"/>
+				android:layout_width="35dp"
+				android:layout_height="30dp"/>
 
 			<EditText
 				android:textColor="#FFFFFF"
@@ -355,14 +357,14 @@
 			android:orientation="horizontal"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:layout_marginTop="5dp"
+			android:layout_marginTop="10dp"
 			android:layout_marginLeft="20dp"
 			android:layout_marginRight="10dp">
 
 			<ImageView
 				android:src="@drawable/verde"
-				android:layout_width="40dp"
-				android:layout_height="40dp"/>
+				android:layout_width="35dp"
+				android:layout_height="30dp"/>
 
 			<EditText
 				android:textColor="#FFFFFF"
@@ -380,14 +382,14 @@
 			android:orientation="horizontal"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:layout_marginTop="5dp"
+			android:layout_marginTop="10dp"
 			android:layout_marginLeft="20dp"
 			android:layout_marginRight="10dp">
 
 			<ImageView
 				android:src="@drawable/soro"
-				android:layout_width="40dp"
-				android:layout_height="40dp"/>
+				android:layout_width="35dp"
+				android:layout_height="30dp"/>
 
 			<EditText
 				android:textColor="#FFFFFF"
@@ -405,14 +407,14 @@
 			android:orientation="horizontal"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:layout_marginTop="5dp"
+			android:layout_marginTop="10dp"
 			android:layout_marginLeft="20dp"
 			android:layout_marginRight="10dp">
 
 			<ImageView
 				android:src="@drawable/person"
-				android:layout_width="40dp"
-				android:layout_height="50dp"/>
+				android:layout_width="35dp"
+				android:layout_height="30dp"/>
 
 			<EditText
 				android:textColor="#FFFFFF"
@@ -430,14 +432,14 @@
 			android:orientation="horizontal"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:layout_marginTop="5dp"
+			android:layout_marginTop="10dp"
 			android:layout_marginLeft="20dp"
 			android:layout_marginRight="10dp">
 
 			<ImageView
 				android:src="@drawable/ouro"
-				android:layout_width="40dp"
-				android:layout_height="40dp"/>
+				android:layout_width="35dp"
+				android:layout_height="30dp"/>
 
 			<EditText
 				android:textColor="#FFFFFF"
@@ -455,14 +457,14 @@
 			android:orientation="horizontal"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:layout_marginTop="5dp"
+			android:layout_marginTop="10dp"
 			android:layout_marginLeft="20dp"
 			android:layout_marginRight="10dp">
 
 			<ImageView
 				android:src="@drawable/banric"
-				android:layout_width="40dp"
-				android:layout_height="40dp"/>
+				android:layout_width="35dp"
+				android:layout_height="30dp"/>
 
 			<EditText
 				android:textColor="#FFFFFF"
@@ -480,14 +482,14 @@
 			android:orientation="horizontal"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:layout_marginTop="5dp"
+			android:layout_marginTop="10dp"
 			android:layout_marginLeft="20dp"
 			android:layout_marginRight="10dp">
 
 			<ImageView
 				android:src="@drawable/banrico"
-				android:layout_width="40dp"
-				android:layout_height="40dp"/>
+				android:layout_width="35dp"
+				android:layout_height="30dp"/>
 
 			<EditText
 				android:textColor="#FFFFFF"
@@ -505,7 +507,7 @@
 			android:orientation="horizontal"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:layout_marginTop="5dp"
+			android:layout_marginTop="10dp"
 			android:layout_marginLeft="20dp"
 			android:layout_marginRight="10dp">
 
@@ -530,7 +532,7 @@
 			android:orientation="horizontal"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:layout_marginTop="5dp"
+			android:layout_marginTop="10dp"
 			android:layout_marginLeft="20dp"
 			android:layout_marginRight="10dp">
 

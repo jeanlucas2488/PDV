@@ -192,31 +192,7 @@ public class pay extends Activity
 					us.setT5(tr5.toString());
 					DB pr = new DB(c);
 					pr.prodIn(us);
-					try {
-						File backupDB;
-						File sd = Environment.getExternalStorageDirectory();
-						File data = Environment.getDataDirectory();
-
-						if (sd.canWrite()) {
-							String currentDBPath = "//data//" + "lucas.client.service"
-								+ "//databases//" + "myDB.db";
-							File currentDB = new File(data, currentDBPath);
-							backupDB = new File(sd, "myDB.db");
-
-							if (currentDB.exists()) {
-								FileChannel src = new FileInputStream(currentDB).getChannel();
-								FileChannel dst = new FileOutputStream(backupDB).getChannel();
-								dst.transferFrom(src, 0, src.size());                    
-								src.close();
-								dst.close();
-							}
-						} else {
-							System.out.println("Não pode escrever no sd");
-						}
-
-					} catch (Exception ed) {
-						System.out.println("Exception:");
-					}
+					
 					Intent itt = new Intent(c, caixaMain.class);
 					startActivity(itt);
 					finish();
@@ -310,6 +286,12 @@ public class pay extends Activity
 					// TODO: Implement this method
 					opts1 = p3;
 					if(opts[p3].toString().startsWith("Dinheiro")){
+						im1.setVisibility(View.VISIBLE);
+						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(90,85);
+						pr.setMargins(+15,+15,+10,0);
+						som1.setEms(6);
+						im1.setLayoutParams(pr);
+						im1.setImageResource(R.drawable.money);
 						lay1.setVisibility(View.VISIBLE);
 							try{
 								db = new DB(c);
@@ -339,13 +321,13 @@ public class pay extends Activity
 					} else {lay1.setVisibility(View.GONE);}
 					if(opts[p3].toString().startsWith("Selecione")){
 						im1.setVisibility(View.GONE);
-						som1.setEms(9);
+						som1.setEms(7);
 					}
 					if(opts[p3].toString().startsWith("Elo Débito")){
 						im1.setVisibility(View.VISIBLE);
-						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(95,90);
-						pr.setMargins(+15,0,-70,0);
-						som1.setEms(7);
+						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(100,95);
+						pr.setMargins(+15,+15,+10,0);
+						som1.setEms(5);
 						im1.setLayoutParams(pr);
 						im1.setImageResource(R.drawable.elo);
 						try{
@@ -376,9 +358,9 @@ public class pay extends Activity
 					} else {}
 					if(opts[p3].toString().startsWith("Elo Crédito")){
 						im1.setVisibility(View.VISIBLE);
-						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(95,90);
-						pr.setMargins(+15,0,-70,0);
-						som1.setEms(7);
+						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(100,95);
+						pr.setMargins(+15,+15,+10,0);
+						som1.setEms(5);
 						im1.setLayoutParams(pr);
 						im1.setImageResource(R.drawable.elo);
 						try{
@@ -410,8 +392,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Visa Débito")){
 						im1.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(95,90);
-						pr.setMargins(+15,0,-70,0);
-						som1.setEms(7);
+						pr.setMargins(+15,+17,+5,0);
+						som1.setEms(5);
 						im1.setLayoutParams(pr);
 						im1.setImageResource(R.drawable.visa);
 						try{
@@ -443,8 +425,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Visa Crédito")){
 						im1.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(95,90);
-						pr.setMargins(+15,0,-70,0);
-						som1.setEms(7);
+						pr.setMargins(+15,+17,+5,0);
+						som1.setEms(5);
 						im1.setLayoutParams(pr);
 						im1.setImageResource(R.drawable.visa);
 						try{
@@ -476,8 +458,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Master Débito")){
 						im1.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(95,90);
-						pr.setMargins(+15,0,-70,0);
-						som1.setEms(7);
+						pr.setMargins(+15,+15,+5,0);
+						som1.setEms(5);
 						im1.setLayoutParams(pr);
 						im1.setImageResource(R.drawable.master);
 						try{
@@ -509,8 +491,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Master Crédito")){
 						im1.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(95,90);
-						pr.setMargins(+15,0,-70,0);
-						som1.setEms(7);
+						pr.setMargins(+15,+15,+5,0);
+						som1.setEms(5);
 						im1.setLayoutParams(pr);
 						im1.setImageResource(R.drawable.master);
 						try{
@@ -542,8 +524,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Hiper")){
 						im1.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(55,50);
-						pr.setMargins(+15,15,-70,0);
-						som1.setEms(10);
+						pr.setMargins(+15,+30,+5,0);
+						som1.setEms(8);
 						im1.setLayoutParams(pr);
 						im1.setImageResource(R.drawable.hiper);
 						try{
@@ -575,8 +557,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Hiper Card")){
 						im1.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(85,80);
-						pr.setMargins(+15,0,-70,0);
-						som1.setEms(7);
+						pr.setMargins(+15,+15,+5,0);
+						som1.setEms(6);
 						im1.setLayoutParams(pr);
 						im1.setImageResource(R.drawable.hiperc);
 						try{
@@ -607,9 +589,9 @@ public class pay extends Activity
 					} else {}
 					if(opts[p3].toString().startsWith("Cabal")){
 						im1.setVisibility(View.VISIBLE);
-						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(55,50);
-						pr.setMargins(+15,15,-70,0);
-						som1.setEms(7);
+						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(65,60);
+						pr.setMargins(+15,+35,+5,0);
+						som1.setEms(5);
 						im1.setLayoutParams(pr);
 						im1.setImageResource(R.drawable.cabal);
 						try{
@@ -641,8 +623,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Pix")){
 						im1.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(75,70);
-						pr.setMargins(+15,15,-70,0);
-						som1.setEms(7);
+						pr.setMargins(+15,+15,0,0);
+						som1.setEms(8);
 						im1.setLayoutParams(pr);
 						im1.setImageResource(R.drawable.pix);
 						try{
@@ -674,8 +656,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Verde Card")){
 						im1.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(75,70);
-						pr.setMargins(+15,15,-70,0);
-						som1.setEms(7);
+						pr.setMargins(+15,+20,+5,0);
+						som1.setEms(6);
 						im1.setLayoutParams(pr);
 						im1.setImageResource(R.drawable.verde);
 						try{
@@ -706,9 +688,9 @@ public class pay extends Activity
 					} else {}
 					if(opts[p3].toString().startsWith("Soro Cred")){
 						im1.setVisibility(View.VISIBLE);
-						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(55,50);
-						pr.setMargins(+15,20,-70,0);
-						som1.setEms(7);
+						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(65,60);
+						pr.setMargins(+15,+20,+5,0);
+						som1.setEms(6);
 						im1.setLayoutParams(pr);
 						im1.setImageResource(R.drawable.soro);
 						try{
@@ -740,8 +722,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Personal Card")){
 						im1.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(75,70);
-						pr.setMargins(+15,15,-70,0);
-						som1.setEms(7);
+						pr.setMargins(+15,+25,+5,0);
+						som1.setEms(5);
 						im1.setLayoutParams(pr);
 						im1.setImageResource(R.drawable.person);
 						try{
@@ -773,8 +755,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Ouro Card")){
 						im1.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(70,60);
-						pr.setMargins(+15,15,-70,0);
-						som1.setEms(7);
+						pr.setMargins(+15,+25,+5,0);
+						som1.setEms(5);
 						im1.setLayoutParams(pr);
 						im1.setImageResource(R.drawable.ouro);
 						try{
@@ -806,8 +788,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Banrisul")){
 						im1.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(75,70);
-						pr.setMargins(+15,15,-70,0);
-						som1.setEms(7);
+						pr.setMargins(+15,15,+5,0);
+						som1.setEms(6);
 						im1.setLayoutParams(pr);
 						im1.setImageResource(R.drawable.banric);
 						try{
@@ -839,8 +821,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Banri Compras")){
 						im1.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(65,60);
-						pr.setMargins(+15,15,-70,0);
-						som1.setEms(7);
+						pr.setMargins(+15,+25,+5,0);
+						som1.setEms(6);
 						im1.setLayoutParams(pr);
 						im1.setImageResource(R.drawable.banrico);
 						try{
@@ -872,8 +854,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Banes Card")){
 						im1.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(75,70);
-						pr.setMargins(+15,15,-70,0);
-						som1.setEms(7);
+						pr.setMargins(+15,+25,+5,0);
+						som1.setEms(6);
 						im1.setLayoutParams(pr);
 						im1.setImageResource(R.drawable.banes);
 						try{
@@ -905,8 +887,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("American Express")){
 						im1.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(75,70);
-						pr.setMargins(+15,15,-70,0);
-						som1.setEms(7);
+						pr.setMargins(+15,+25,0,0);
+						som1.setEms(5);
 						im1.setLayoutParams(pr);
 						im1.setImageResource(R.drawable.americ);
 						try{
@@ -951,6 +933,12 @@ public class pay extends Activity
 					opts2 = p3;
 					if(opts[p3].toString().startsWith("Dinheiro")){
 						lay2.setVisibility(View.VISIBLE);
+						im2.setVisibility(View.VISIBLE);
+						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(90,85);
+						pr.setMargins(+15,+15,+10,0);
+						som2.setEms(6);
+						im2.setLayoutParams(pr);
+						im2.setImageResource(R.drawable.money);
 						try{
 							db = new DB(c);
 							List<util> rd;
@@ -979,13 +967,13 @@ public class pay extends Activity
 					} else {lay2.setVisibility(View.GONE);}
 					if(opts[p3].toString().startsWith("Selecione")){
 						im2.setVisibility(View.GONE);
-						som2.setEms(9);
+						som2.setEms(7);
 					}
 					if(opts[p3].toString().startsWith("Elo Débito")){
 						im2.setVisibility(View.VISIBLE);
-						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(95,90);
-						pr.setMargins(+15,0,-70,0);
-						som2.setEms(7);
+						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(100,95);
+						pr.setMargins(+15,+15,+10,0);
+						som2.setEms(5);
 						im2.setLayoutParams(pr);
 						im2.setImageResource(R.drawable.elo);
 						try{
@@ -1016,9 +1004,9 @@ public class pay extends Activity
 					} else {}
 					if(opts[p3].toString().startsWith("Elo Crédito")){
 						im2.setVisibility(View.VISIBLE);
-						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(95,90);
-						pr.setMargins(+15,0,-70,0);
-						som2.setEms(7);
+						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(100,95);
+						pr.setMargins(+15,+15,+10,0);
+						som2.setEms(5);
 						im2.setLayoutParams(pr);
 						im2.setImageResource(R.drawable.elo);
 						try{
@@ -1050,8 +1038,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Visa Débito")){
 						im2.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(95,90);
-						pr.setMargins(+15,0,-70,0);
-						som2.setEms(7);
+						pr.setMargins(+15,+17,+5,0);
+						som2.setEms(5);
 						im2.setLayoutParams(pr);
 						im2.setImageResource(R.drawable.visa);
 						try{
@@ -1083,8 +1071,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Visa Crédito")){
 						im2.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(95,90);
-						pr.setMargins(+15,0,-70,0);
-						som2.setEms(7);
+						pr.setMargins(+15,+17,+5,0);
+						som2.setEms(5);
 						im2.setLayoutParams(pr);
 						im2.setImageResource(R.drawable.visa);
 						try{
@@ -1116,8 +1104,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Master Débito")){
 						im2.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(95,90);
-						pr.setMargins(+15,0,-70,0);
-						som2.setEms(7);
+						pr.setMargins(+15,+15,+5,0);
+						som2.setEms(5);
 						im2.setLayoutParams(pr);
 						im2.setImageResource(R.drawable.master);
 						try{
@@ -1149,8 +1137,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Master Crédito")){
 						im2.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(95,90);
-						pr.setMargins(+15,0,-70,0);
-						som2.setEms(7);
+						pr.setMargins(+15,+15,+5,0);
+						som2.setEms(5);
 						im2.setLayoutParams(pr);
 						im2.setImageResource(R.drawable.master);
 						try{
@@ -1182,8 +1170,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Hiper")){
 						im2.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(55,50);
-						pr.setMargins(+15,15,-70,0);
-						som2.setEms(10);
+						pr.setMargins(+15,+30,+5,0);
+						som2.setEms(8);
 						im2.setLayoutParams(pr);
 						im2.setImageResource(R.drawable.hiper);
 						try{
@@ -1215,8 +1203,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Hiper Card")){
 						im2.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(85,80);
-						pr.setMargins(+15,0,-70,0);
-						som2.setEms(7);
+						pr.setMargins(+15,+15,+5,0);
+						som2.setEms(6);
 						im2.setLayoutParams(pr);
 						im2.setImageResource(R.drawable.hiperc);
 						try{
@@ -1247,9 +1235,9 @@ public class pay extends Activity
 					} else {}
 					if(opts[p3].toString().startsWith("Cabal")){
 						im2.setVisibility(View.VISIBLE);
-						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(55,50);
-						pr.setMargins(+15,15,-70,0);
-						som2.setEms(7);
+						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(65,60);
+						pr.setMargins(+15,+35,+5,0);
+						som2.setEms(5);
 						im2.setLayoutParams(pr);
 						im2.setImageResource(R.drawable.cabal);
 						try{
@@ -1281,8 +1269,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Pix")){
 						im2.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(75,70);
-						pr.setMargins(+15,15,-70,0);
-						som2.setEms(7);
+						pr.setMargins(+15,+15,0,0);
+						som2.setEms(8);
 						im2.setLayoutParams(pr);
 						im2.setImageResource(R.drawable.pix);
 						try{
@@ -1314,8 +1302,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Verde Card")){
 						im2.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(75,70);
-						pr.setMargins(+15,15,-70,0);
-						som2.setEms(7);
+						pr.setMargins(+15,+20,+5,0);
+						som2.setEms(6);
 						im2.setLayoutParams(pr);
 						im2.setImageResource(R.drawable.verde);
 						try{
@@ -1346,9 +1334,9 @@ public class pay extends Activity
 					} else {}
 					if(opts[p3].toString().startsWith("Soro Cred")){
 						im2.setVisibility(View.VISIBLE);
-						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(55,50);
-						pr.setMargins(+15,20,-70,0);
-						som2.setEms(7);
+						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(65,60);
+						pr.setMargins(+15,+20,+5,0);
+						som2.setEms(6);
 						im2.setLayoutParams(pr);
 						im2.setImageResource(R.drawable.soro);
 						try{
@@ -1380,8 +1368,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Personal Card")){
 						im2.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(75,70);
-						pr.setMargins(+15,15,-70,0);
-						som2.setEms(7);
+						pr.setMargins(+15,+25,+5,0);
+						som2.setEms(5);
 						im2.setLayoutParams(pr);
 						im2.setImageResource(R.drawable.person);
 						try{
@@ -1413,8 +1401,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Ouro Card")){
 						im2.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(70,60);
-						pr.setMargins(+15,15,-70,0);
-						som2.setEms(7);
+						pr.setMargins(+15,+25,+5,0);
+						som2.setEms(5);
 						im2.setLayoutParams(pr);
 						im2.setImageResource(R.drawable.ouro);
 						try{
@@ -1446,8 +1434,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Banrisul")){
 						im2.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(75,70);
-						pr.setMargins(+15,15,-70,0);
-						som2.setEms(7);
+						pr.setMargins(+15,15,+5,0);
+						som2.setEms(6);
 						im2.setLayoutParams(pr);
 						im2.setImageResource(R.drawable.banric);
 						try{
@@ -1479,8 +1467,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Banri Compras")){
 						im2.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(65,60);
-						pr.setMargins(+15,15,-70,0);
-						som2.setEms(7);
+						pr.setMargins(+15,+25,+5,0);
+						som2.setEms(6);
 						im2.setLayoutParams(pr);
 						im2.setImageResource(R.drawable.banrico);
 						try{
@@ -1512,8 +1500,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Banes Card")){
 						im2.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(75,70);
-						pr.setMargins(+15,15,-70,0);
-						som2.setEms(7);
+						pr.setMargins(+15,+25,+5,0);
+						som2.setEms(6);
 						im2.setLayoutParams(pr);
 						im2.setImageResource(R.drawable.banes);
 						try{
@@ -1545,8 +1533,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("American Express")){
 						im2.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(75,70);
-						pr.setMargins(+15,15,-70,0);
-						som2.setEms(7);
+						pr.setMargins(+15,+25,0,0);
+						som2.setEms(5);
 						im2.setLayoutParams(pr);
 						im2.setImageResource(R.drawable.americ);
 						try{
@@ -1592,6 +1580,12 @@ public class pay extends Activity
 					opts3 = p3;
 					if(opts[p3].toString().startsWith("Dinheiro")){
 						lay3.setVisibility(View.VISIBLE);
+						im3.setVisibility(View.VISIBLE);
+						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(90,85);
+						pr.setMargins(+15,+15,+10,0);
+						som3.setEms(6);
+						im3.setLayoutParams(pr);
+						im3.setImageResource(R.drawable.money);
 						try{
 							db = new DB(c);
 							List<util> rd;
@@ -1620,13 +1614,13 @@ public class pay extends Activity
 					} else {lay3.setVisibility(View.GONE);}
 					if(opts[p3].toString().startsWith("Selecione")){
 						im3.setVisibility(View.GONE);
-						som3.setEms(9);
+						som3.setEms(7);
 					}
 					if(opts[p3].toString().startsWith("Elo Débito")){
 						im3.setVisibility(View.VISIBLE);
-						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(95,90);
-						pr.setMargins(+15,0,-70,0);
-						som3.setEms(7);
+						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(100,95);
+						pr.setMargins(+15,+15,+10,0);
+						som3.setEms(5);
 						im3.setLayoutParams(pr);
 						im3.setImageResource(R.drawable.elo);
 						try{
@@ -1657,9 +1651,9 @@ public class pay extends Activity
 					} else {}
 					if(opts[p3].toString().startsWith("Elo Crédito")){
 						im3.setVisibility(View.VISIBLE);
-						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(95,90);
-						pr.setMargins(+15,0,-70,0);
-						som3.setEms(7);
+						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(100,95);
+						pr.setMargins(+15,+15,+10,0);
+						som3.setEms(5);
 						im3.setLayoutParams(pr);
 						im3.setImageResource(R.drawable.elo);
 						try{
@@ -1691,8 +1685,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Visa Débito")){
 						im3.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(95,90);
-						pr.setMargins(+15,0,-70,0);
-						som3.setEms(7);
+						pr.setMargins(+15,+17,+5,0);
+						som3.setEms(5);
 						im3.setLayoutParams(pr);
 						im3.setImageResource(R.drawable.visa);
 						try{
@@ -1724,8 +1718,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Visa Crédito")){
 						im3.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(95,90);
-						pr.setMargins(+15,0,-70,0);
-						som3.setEms(7);
+						pr.setMargins(+15,+17,+5,0);
+						som3.setEms(5);
 						im3.setLayoutParams(pr);
 						im3.setImageResource(R.drawable.visa);
 						try{
@@ -1757,8 +1751,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Master Débito")){
 						im3.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(95,90);
-						pr.setMargins(+15,0,-70,0);
-						som3.setEms(7);
+						pr.setMargins(+15,+15,+5,0);
+						som3.setEms(5);
 						im3.setLayoutParams(pr);
 						im3.setImageResource(R.drawable.master);
 						try{
@@ -1790,8 +1784,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Master Crédito")){
 						im3.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(95,90);
-						pr.setMargins(+15,0,-70,0);
-						som3.setEms(7);
+						pr.setMargins(+15,+15,+5,0);
+						som3.setEms(5);
 						im3.setLayoutParams(pr);
 						im3.setImageResource(R.drawable.master);
 						try{
@@ -1823,8 +1817,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Hiper")){
 						im3.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(55,50);
-						pr.setMargins(+15,15,-70,0);
-						som3.setEms(10);
+						pr.setMargins(+15,+30,+5,0);
+						som3.setEms(8);
 						im3.setLayoutParams(pr);
 						im3.setImageResource(R.drawable.hiper);
 						try{
@@ -1856,8 +1850,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Hiper Card")){
 						im3.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(85,80);
-						pr.setMargins(+15,0,-70,0);
-						som3.setEms(7);
+						pr.setMargins(+15,+15,+5,0);
+						som3.setEms(6);
 						im3.setLayoutParams(pr);
 						im3.setImageResource(R.drawable.hiperc);
 						try{
@@ -1888,9 +1882,9 @@ public class pay extends Activity
 					} else {}
 					if(opts[p3].toString().startsWith("Cabal")){
 						im3.setVisibility(View.VISIBLE);
-						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(55,50);
-						pr.setMargins(+15,15,-70,0);
-						som3.setEms(7);
+						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(65,60);
+						pr.setMargins(+15,+35,+5,0);
+						som3.setEms(5);
 						im3.setLayoutParams(pr);
 						im3.setImageResource(R.drawable.cabal);
 						try{
@@ -1922,8 +1916,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Pix")){
 						im3.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(75,70);
-						pr.setMargins(+15,15,-70,0);
-						som3.setEms(7);
+						pr.setMargins(+15,+15,0,0);
+						som3.setEms(8);
 						im3.setLayoutParams(pr);
 						im3.setImageResource(R.drawable.pix);
 						try{
@@ -1955,8 +1949,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Verde Card")){
 						im3.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(75,70);
-						pr.setMargins(+15,15,-70,0);
-						som3.setEms(7);
+						pr.setMargins(+15,+20,+5,0);
+						som3.setEms(6);
 						im3.setLayoutParams(pr);
 						im3.setImageResource(R.drawable.verde);
 						try{
@@ -1987,9 +1981,9 @@ public class pay extends Activity
 					} else {}
 					if(opts[p3].toString().startsWith("Soro Cred")){
 						im3.setVisibility(View.VISIBLE);
-						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(55,50);
-						pr.setMargins(+15,20,-70,0);
-						som3.setEms(7);
+						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(65,60);
+						pr.setMargins(+15,+20,+5,0);
+						som3.setEms(6);
 						im3.setLayoutParams(pr);
 						im3.setImageResource(R.drawable.soro);
 						try{
@@ -2021,8 +2015,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Personal Card")){
 						im3.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(75,70);
-						pr.setMargins(+15,15,-70,0);
-						som3.setEms(7);
+						pr.setMargins(+15,+25,+5,0);
+						som3.setEms(5);
 						im3.setLayoutParams(pr);
 						im3.setImageResource(R.drawable.person);
 						try{
@@ -2054,8 +2048,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Ouro Card")){
 						im3.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(70,60);
-						pr.setMargins(+15,15,-70,0);
-						som3.setEms(7);
+						pr.setMargins(+15,+25,+5,0);
+						som3.setEms(5);
 						im3.setLayoutParams(pr);
 						im3.setImageResource(R.drawable.ouro);
 						try{
@@ -2087,8 +2081,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Banrisul")){
 						im3.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(75,70);
-						pr.setMargins(+15,15,-70,0);
-						som3.setEms(7);
+						pr.setMargins(+15,15,+5,0);
+						som3.setEms(6);
 						im3.setLayoutParams(pr);
 						im3.setImageResource(R.drawable.banric);
 						try{
@@ -2120,8 +2114,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Banri Compras")){
 						im3.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(65,60);
-						pr.setMargins(+15,15,-70,0);
-						som3.setEms(7);
+						pr.setMargins(+15,+25,+5,0);
+						som3.setEms(6);
 						im3.setLayoutParams(pr);
 						im3.setImageResource(R.drawable.banrico);
 						try{
@@ -2153,8 +2147,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Banes Card")){
 						im3.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(75,70);
-						pr.setMargins(+15,15,-70,0);
-						som3.setEms(7);
+						pr.setMargins(+15,+25,+5,0);
+						som3.setEms(6);
 						im3.setLayoutParams(pr);
 						im3.setImageResource(R.drawable.banes);
 						try{
@@ -2186,8 +2180,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("American Express")){
 						im3.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(75,70);
-						pr.setMargins(+15,15,-70,0);
-						som3.setEms(7);
+						pr.setMargins(+15,+25,0,0);
+						som3.setEms(5);
 						im3.setLayoutParams(pr);
 						im3.setImageResource(R.drawable.americ);
 						try{
@@ -2233,6 +2227,12 @@ public class pay extends Activity
 					opts4 = p3;
 					if(opts[p3].toString().startsWith("Dinheiro")){
 						lay4.setVisibility(View.VISIBLE);
+						im4.setVisibility(View.VISIBLE);
+						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(90,85);
+						pr.setMargins(+15,+15,+10,0);
+						som4.setEms(6);
+						im4.setLayoutParams(pr);
+						im4.setImageResource(R.drawable.money);
 						try{
 							db = new DB(c);
 							List<util> rd;
@@ -2261,13 +2261,13 @@ public class pay extends Activity
 					} else {lay4.setVisibility(View.GONE);}
 					if(opts[p3].toString().startsWith("Selecione")){
 						im4.setVisibility(View.GONE);
-						som4.setEms(9);
+						som4.setEms(7);
 					}
 					if(opts[p3].toString().startsWith("Elo Débito")){
 						im4.setVisibility(View.VISIBLE);
-						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(95,90);
-						pr.setMargins(+15,0,-70,0);
-						som4.setEms(7);
+						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(100,95);
+						pr.setMargins(+15,+15,+10,0);
+						som4.setEms(5);
 						im4.setLayoutParams(pr);
 						im4.setImageResource(R.drawable.elo);
 						try{
@@ -2298,9 +2298,9 @@ public class pay extends Activity
 					} else {}
 					if(opts[p3].toString().startsWith("Elo Crédito")){
 						im4.setVisibility(View.VISIBLE);
-						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(95,90);
-						pr.setMargins(+15,0,-70,0);
-						som4.setEms(7);
+						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(100,95);
+						pr.setMargins(+15,+15,+10,0);
+						som4.setEms(5);
 						im4.setLayoutParams(pr);
 						im4.setImageResource(R.drawable.elo);
 						try{
@@ -2332,8 +2332,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Visa Débito")){
 						im4.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(95,90);
-						pr.setMargins(+15,0,-70,0);
-						som4.setEms(7);
+						pr.setMargins(+15,+17,+5,0);
+						som4.setEms(5);
 						im4.setLayoutParams(pr);
 						im4.setImageResource(R.drawable.visa);
 						try{
@@ -2365,8 +2365,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Visa Crédito")){
 						im4.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(95,90);
-						pr.setMargins(+15,0,-70,0);
-						som4.setEms(7);
+						pr.setMargins(+15,+17,+5,0);
+						som4.setEms(5);
 						im4.setLayoutParams(pr);
 						im4.setImageResource(R.drawable.visa);
 						try{
@@ -2398,8 +2398,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Master Débito")){
 						im4.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(95,90);
-						pr.setMargins(+15,0,-70,0);
-						som4.setEms(7);
+						pr.setMargins(+15,+15,+5,0);
+						som4.setEms(5);
 						im4.setLayoutParams(pr);
 						im4.setImageResource(R.drawable.master);
 						try{
@@ -2431,8 +2431,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Master Crédito")){
 						im4.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(95,90);
-						pr.setMargins(+15,0,-70,0);
-						som4.setEms(7);
+						pr.setMargins(+15,+15,+5,0);
+						som4.setEms(5);
 						im4.setLayoutParams(pr);
 						im4.setImageResource(R.drawable.master);
 						try{
@@ -2464,8 +2464,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Hiper")){
 						im4.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(55,50);
-						pr.setMargins(+15,15,-70,0);
-						som4.setEms(10);
+						pr.setMargins(+15,+30,+5,0);
+						som4.setEms(8);
 						im4.setLayoutParams(pr);
 						im4.setImageResource(R.drawable.hiper);
 						try{
@@ -2497,8 +2497,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Hiper Card")){
 						im4.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(85,80);
-						pr.setMargins(+15,0,-70,0);
-						som4.setEms(7);
+						pr.setMargins(+15,+15,+5,0);
+						som4.setEms(6);
 						im4.setLayoutParams(pr);
 						im4.setImageResource(R.drawable.hiperc);
 						try{
@@ -2529,9 +2529,9 @@ public class pay extends Activity
 					} else {}
 					if(opts[p3].toString().startsWith("Cabal")){
 						im4.setVisibility(View.VISIBLE);
-						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(55,50);
-						pr.setMargins(+15,15,-70,0);
-						som4.setEms(7);
+						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(65,60);
+						pr.setMargins(+15,+35,+5,0);
+						som4.setEms(5);
 						im4.setLayoutParams(pr);
 						im4.setImageResource(R.drawable.cabal);
 						try{
@@ -2563,8 +2563,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Pix")){
 						im4.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(75,70);
-						pr.setMargins(+15,15,-70,0);
-						som4.setEms(7);
+						pr.setMargins(+15,+15,0,0);
+						som4.setEms(8);
 						im4.setLayoutParams(pr);
 						im4.setImageResource(R.drawable.pix);
 						try{
@@ -2596,8 +2596,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Verde Card")){
 						im4.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(75,70);
-						pr.setMargins(+15,15,-70,0);
-						som4.setEms(7);
+						pr.setMargins(+15,+20,+5,0);
+						som4.setEms(6);
 						im4.setLayoutParams(pr);
 						im4.setImageResource(R.drawable.verde);
 						try{
@@ -2628,9 +2628,9 @@ public class pay extends Activity
 					} else {}
 					if(opts[p3].toString().startsWith("Soro Cred")){
 						im4.setVisibility(View.VISIBLE);
-						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(55,50);
-						pr.setMargins(+15,20,-70,0);
-						som4.setEms(7);
+						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(65,60);
+						pr.setMargins(+15,+20,+5,0);
+						som4.setEms(6);
 						im4.setLayoutParams(pr);
 						im4.setImageResource(R.drawable.soro);
 						try{
@@ -2662,8 +2662,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Personal Card")){
 						im4.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(75,70);
-						pr.setMargins(+15,15,-70,0);
-						som4.setEms(7);
+						pr.setMargins(+15,+25,+5,0);
+						som4.setEms(5);
 						im4.setLayoutParams(pr);
 						im4.setImageResource(R.drawable.person);
 						try{
@@ -2695,8 +2695,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Ouro Card")){
 						im4.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(70,60);
-						pr.setMargins(+15,15,-70,0);
-						som4.setEms(7);
+						pr.setMargins(+15,+25,+5,0);
+						som4.setEms(5);
 						im4.setLayoutParams(pr);
 						im4.setImageResource(R.drawable.ouro);
 						try{
@@ -2728,8 +2728,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Banrisul")){
 						im4.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(75,70);
-						pr.setMargins(+15,15,-70,0);
-						som4.setEms(7);
+						pr.setMargins(+15,15,+5,0);
+						som4.setEms(6);
 						im4.setLayoutParams(pr);
 						im4.setImageResource(R.drawable.banric);
 						try{
@@ -2761,8 +2761,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Banri Compras")){
 						im4.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(65,60);
-						pr.setMargins(+15,15,-70,0);
-						som4.setEms(7);
+						pr.setMargins(+15,+25,+5,0);
+						som4.setEms(6);
 						im4.setLayoutParams(pr);
 						im4.setImageResource(R.drawable.banrico);
 						try{
@@ -2794,8 +2794,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Banes Card")){
 						im4.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(75,70);
-						pr.setMargins(+15,15,-70,0);
-						som4.setEms(7);
+						pr.setMargins(+15,+25,+5,0);
+						som4.setEms(6);
 						im4.setLayoutParams(pr);
 						im4.setImageResource(R.drawable.banes);
 						try{
@@ -2827,8 +2827,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("American Express")){
 						im4.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(75,70);
-						pr.setMargins(+15,15,-70,0);
-						som4.setEms(7);
+						pr.setMargins(+15,+25,0,0);
+						som4.setEms(5);
 						im4.setLayoutParams(pr);
 						im4.setImageResource(R.drawable.americ);
 						try{
@@ -2874,6 +2874,12 @@ public class pay extends Activity
 					opts5 = p3;
 					if(opts[p3].toString().startsWith("Dinheiro")){
 						lay5.setVisibility(View.VISIBLE);
+						im5.setVisibility(View.VISIBLE);
+						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(90,85);
+						pr.setMargins(+15,+15,+10,0);
+						som5.setEms(6);
+						im5.setLayoutParams(pr);
+						im5.setImageResource(R.drawable.money);
 						try{
 							db = new DB(c);
 							List<util> rd;
@@ -2902,13 +2908,13 @@ public class pay extends Activity
 					} else {lay5.setVisibility(View.GONE);}
 					if(opts[p3].toString().startsWith("Selecione")){
 						im5.setVisibility(View.GONE);
-						som5.setEms(9);
+						som5.setEms(7);
 					}
 					if(opts[p3].toString().startsWith("Elo Débito")){
 						im5.setVisibility(View.VISIBLE);
-						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(95,90);
-						pr.setMargins(+15,0,-70,0);
-						som5.setEms(7);
+						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(100,95);
+						pr.setMargins(+15,+15,+10,0);
+						som5.setEms(5);
 						im5.setLayoutParams(pr);
 						im5.setImageResource(R.drawable.elo);
 						try{
@@ -2939,9 +2945,9 @@ public class pay extends Activity
 					} else {}
 					if(opts[p3].toString().startsWith("Elo Crédito")){
 						im5.setVisibility(View.VISIBLE);
-						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(95,90);
-						pr.setMargins(+15,0,-70,0);
-						som5.setEms(7);
+						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(100,95);
+						pr.setMargins(+15,+15,+10,0);
+						som5.setEms(5);
 						im5.setLayoutParams(pr);
 						im5.setImageResource(R.drawable.elo);
 						try{
@@ -2973,8 +2979,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Visa Débito")){
 						im5.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(95,90);
-						pr.setMargins(+15,0,-70,0);
-						som5.setEms(7);
+						pr.setMargins(+15,+17,+5,0);
+						som5.setEms(5);
 						im5.setLayoutParams(pr);
 						im5.setImageResource(R.drawable.visa);
 						try{
@@ -3006,8 +3012,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Visa Crédito")){
 						im5.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(95,90);
-						pr.setMargins(+15,0,-70,0);
-						som5.setEms(7);
+						pr.setMargins(+15,+17,+5,0);
+						som5.setEms(5);
 						im5.setLayoutParams(pr);
 						im5.setImageResource(R.drawable.visa);
 						try{
@@ -3039,8 +3045,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Master Débito")){
 						im5.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(95,90);
-						pr.setMargins(+15,0,-70,0);
-						som5.setEms(7);
+						pr.setMargins(+15,+15,+5,0);
+						som5.setEms(5);
 						im5.setLayoutParams(pr);
 						im5.setImageResource(R.drawable.master);
 						try{
@@ -3072,8 +3078,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Master Crédito")){
 						im5.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(95,90);
-						pr.setMargins(+15,0,-70,0);
-						som5.setEms(7);
+						pr.setMargins(+15,+15,+5,0);
+						som5.setEms(5);
 						im5.setLayoutParams(pr);
 						im5.setImageResource(R.drawable.master);
 						try{
@@ -3105,8 +3111,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Hiper")){
 						im5.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(55,50);
-						pr.setMargins(+15,15,-70,0);
-						som5.setEms(10);
+						pr.setMargins(+15,+30,+5,0);
+						som5.setEms(8);
 						im5.setLayoutParams(pr);
 						im5.setImageResource(R.drawable.hiper);
 						try{
@@ -3138,8 +3144,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Hiper Card")){
 						im5.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(85,80);
-						pr.setMargins(+15,0,-70,0);
-						som5.setEms(7);
+						pr.setMargins(+15,+15,+5,0);
+						som5.setEms(6);
 						im5.setLayoutParams(pr);
 						im5.setImageResource(R.drawable.hiperc);
 						try{
@@ -3170,9 +3176,9 @@ public class pay extends Activity
 					} else {}
 					if(opts[p3].toString().startsWith("Cabal")){
 						im5.setVisibility(View.VISIBLE);
-						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(55,50);
-						pr.setMargins(+15,15,-70,0);
-						som5.setEms(7);
+						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(65,60);
+						pr.setMargins(+15,+35,+5,0);
+						som5.setEms(5);
 						im5.setLayoutParams(pr);
 						im5.setImageResource(R.drawable.cabal);
 						try{
@@ -3204,8 +3210,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Pix")){
 						im5.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(75,70);
-						pr.setMargins(+15,15,-70,0);
-						som5.setEms(7);
+						pr.setMargins(+15,+15,0,0);
+						som5.setEms(8);
 						im5.setLayoutParams(pr);
 						im5.setImageResource(R.drawable.pix);
 						try{
@@ -3237,8 +3243,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Verde Card")){
 						im5.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(75,70);
-						pr.setMargins(+15,15,-70,0);
-						som5.setEms(7);
+						pr.setMargins(+15,+20,+5,0);
+						som5.setEms(6);
 						im5.setLayoutParams(pr);
 						im5.setImageResource(R.drawable.verde);
 						try{
@@ -3269,9 +3275,9 @@ public class pay extends Activity
 					} else {}
 					if(opts[p3].toString().startsWith("Soro Cred")){
 						im5.setVisibility(View.VISIBLE);
-						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(55,50);
-						pr.setMargins(+15,20,-70,0);
-						som5.setEms(7);
+						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(65,60);
+						pr.setMargins(+15,+20,+5,0);
+						som5.setEms(6);
 						im5.setLayoutParams(pr);
 						im5.setImageResource(R.drawable.soro);
 						try{
@@ -3303,8 +3309,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Personal Card")){
 						im5.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(75,70);
-						pr.setMargins(+15,15,-70,0);
-						som5.setEms(7);
+						pr.setMargins(+15,+25,+5,0);
+						som5.setEms(5);
 						im5.setLayoutParams(pr);
 						im5.setImageResource(R.drawable.person);
 						try{
@@ -3336,8 +3342,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Ouro Card")){
 						im5.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(70,60);
-						pr.setMargins(+15,15,-70,0);
-						som5.setEms(7);
+						pr.setMargins(+15,+25,+5,0);
+						som5.setEms(5);
 						im5.setLayoutParams(pr);
 						im5.setImageResource(R.drawable.ouro);
 						try{
@@ -3369,8 +3375,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Banrisul")){
 						im5.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(75,70);
-						pr.setMargins(+15,15,-70,0);
-						som5.setEms(7);
+						pr.setMargins(+15,15,+5,0);
+						som5.setEms(6);
 						im5.setLayoutParams(pr);
 						im5.setImageResource(R.drawable.banric);
 						try{
@@ -3402,8 +3408,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Banri Compras")){
 						im5.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(65,60);
-						pr.setMargins(+15,15,-70,0);
-						som5.setEms(7);
+						pr.setMargins(+15,+25,+5,0);
+						som5.setEms(6);
 						im5.setLayoutParams(pr);
 						im5.setImageResource(R.drawable.banrico);
 						try{
@@ -3435,8 +3441,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("Banes Card")){
 						im5.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(75,70);
-						pr.setMargins(+15,15,-70,0);
-						som5.setEms(7);
+						pr.setMargins(+15,+25,+5,0);
+						som5.setEms(6);
 						im5.setLayoutParams(pr);
 						im5.setImageResource(R.drawable.banes);
 						try{
@@ -3468,8 +3474,8 @@ public class pay extends Activity
 					if(opts[p3].toString().startsWith("American Express")){
 						im5.setVisibility(View.VISIBLE);
 						LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(75,70);
-						pr.setMargins(+15,15,-70,0);
-						som5.setEms(7);
+						pr.setMargins(+15,+25,0,0);
+						som5.setEms(5);
 						im5.setLayoutParams(pr);
 						im5.setImageResource(R.drawable.americ);
 						try{
